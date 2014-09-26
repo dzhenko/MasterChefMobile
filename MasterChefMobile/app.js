@@ -1,7 +1,5 @@
 
 (function () {
-    function() {
-    }
     // store a reference to the application object that will be created
     // later on so that we can use it if need be
     var app;
@@ -44,7 +42,7 @@
         skin: 'flat',
 
         // the application needs to know which view to load first
-        initial: 'views/home.html'
+        initial: 'views/home/home.html'
       });
 
     }, false);

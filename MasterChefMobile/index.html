@@ -1,64 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Master Chef</title>
-    <meta charset="utf-8" />
+    <head>
+        <title>Master Chef</title>
+        <meta charset="utf-8" />
 
-    <link href="kendo/styles/kendo.mobile.common.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.mobile.flat.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.dataviz.mobile.css" rel="stylesheet" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-    
-    <link href="styles/main.css" rel="stylesheet" />
-    <link href="styles/app.css" rel="stylesheet" />
-   
-    <link href="styles/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="styles/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
-    
-    <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
-    
-    <script src="styles/bootstrap/bootstrap.min.js"></script>
+        <link href="kendo/styles/kendo.mobile.common.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.mobile.flat.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.dataviz.mobile.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
 
-    <script src="app.js"></script>
-    <script src="scripts/auth.js"></script>
-    <script src="scripts/requester.js"></script>
-    
-    <script src="views/login/login.js"></script>
-    <script src="views/register/register.js"></script>
-    <script src="views/home/home.js"></script>
-    <script src="views/all-recipes/allRecipes.js"></script>
-    <script src="views/all-categories/allCategories.js"></script>
-    <script src="views/single-recipe/singleRecipe.js"></script>
-</head>
-<body> 
-    <div data-role="layout" data-id="main-layout" id="main-layout">
-        <div data-role="header">
-            <div data-role="navbar">
-                <h1 data-role="view-title"></h1>
+        <link href="styles/main.css" rel="stylesheet" />
+        <link href="styles/app.css" rel="stylesheet" />
+
+        <link href="styles/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="styles/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+
+        <script src="styles/bootstrap/bootstrap.min.js"></script>
+
+        <script src="app.js"></script>
+        <script src="scripts/auth.js"></script>
+        <script src="scripts/requester.js"></script>
+
+        <script src="views/login/login.js"></script>
+        <script src="views/register/register.js"></script>
+        <script src="views/home/home.js"></script>
+        <script src="views/all-recipes/allRecipes.js"></script>
+        <script src="views/all-categories/allCategories.js"></script>
+        <script src="views/single-recipe/singleRecipe.js"></script>
+    </head>
+    <body>
+        <div data-role="layout" data-id="main-layout" id="main-layout">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <h1 data-role="view-title"></h1>
+                </div>
+            </div>
+
+            <!-- application views will be rendered here -->
+
+            <div data-role="footer">
+                <div data-role="tabstrip" id="loggedOutFooter">
+                    <a href="views/register/register.html" data-icon="contacts" data-show="app.auth.isAuthenticated">Register</a>
+                    <a href="views/home/home.html" data-icon="home">Home</a>
+                    <a href="views/login/login.html" data-icon="contacts">Login</a>
+                </div>
+
+                <div data-role="tabstrip" id="loggedInFooter">
+                    <a href="views/all-categories/all-categories.html" data-icon="add">Add</a>
+                    <a href="views/all-recipes/all-recipes.html" data-icon="mostviewed">Recipes</a>
+                    <a href="views/home/home.html" data-icon="home">Home</a>
+                    <a href="views/all-recipes/all-recipes.html" data-icon="search">Find</a>
+                    <a href="views/all-categories/all-categories.html" data-icon="settings">Profile</a>
+                </div>
             </div>
         </div>
-        
-        <!-- application views will be rendered here -->
-        
-        <div data-role="footer" id="loggedOutFooter">
-            <div data-role="tabstrip">
-                <a href="views/register/register.html" data-icon="contacts" data-show="app.auth.isAuthenticated">Register</a>
-                <a href="views/home/home.html" data-icon="home">Home</a>
-                <a href="views/login/login.html" data-icon="contacts">Login</a>
-            </div>
-        </div>
-        
-        <div data-role="footer" id="loggedInFooter">
-            <div data-role="tabstrip">
-                <a href="views/all-categories/all-categories.html" data-icon="add">Add</a>
-                <a href="views/all-recipes/all-recipes.html" data-icon="mostviewed">Recipes</a>
-                <a href="views/home/home.html" data-icon="home">Home</a>
-                <a href="views/all-recipes/all-recipes.html" data-icon="search">Find</a>
-                <a href="views/all-categories/all-categories.html" data-icon="settings">Profile</a>
-            </div>
-        </div>
-    </div>
-</body>
+    </body>
 </html>

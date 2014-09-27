@@ -1,0 +1,11 @@
+<div data-role="view" data-layout="main-layout" data-title="All Categories" id="all-categories-view" data-id="all-categories-view">
+    <ul data-role="listview" data-source="app.allCategories.model" data-template="all-categories-template">
+    </ul>
+</div>
+
+<script type="text/x-kendo-template" id="all-categories-template">
+    <div class="all-recipes-recipe">
+        <img src="#=Image#" alt="#:Name# image" class="pullImage"/>
+        <h3>#=Name#</h3>
+    </div>
+</script>

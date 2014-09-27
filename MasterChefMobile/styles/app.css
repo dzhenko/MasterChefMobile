@@ -2,23 +2,23 @@ a {
     text-decoration:none;
 }
 
-#all-recipes-view .all-recipes-recipe h3 {
-    font-size: 1.3em;
-    line-height: 1.4em;
+#all-recipes-view .title {
+    font-style: italic;
+    text-align: center;
     margin: 0;
     padding: 0;
-    height: 1.3em;
-    overflow: hidden;
 }
-#all-recipes-view .all-recipes-recipe p {
-    font-size: 1em;
-    margin: 0;
-    padding: .3em 0 0;
+
+#all-recipes-view .image {
+    display: block;
+    margin: auto;
+    height: 280px;
+    width: 280px;
 }
-#all-recipes-view .all-recipes-recipe .pullImage {
-    width: 64px;
-    height: 64px;
-    border-radius: 3px;
-    float: left;
-    margin-right: 10px;
+
+#all-recipes-view .buttons {
+    margin: auto;
+    width: 280px;
+    margin-bottom:3em;
+    color: #FFF;
 }

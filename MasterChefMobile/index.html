@@ -29,23 +29,27 @@
     <script src="views/register/register.js"></script>
     <script src="views/home/home.js"></script>
     <script src="views/all-recipes/allRecipes.js"></script>
+    <script src="views/all-categories/allCategories.js"></script>
 </head>
 <body> 
     <div data-role="layout" data-id="main-layout" id="main-layout">
         <div data-role="header">
             <div data-role="navbar">
-                <span data-role="view-title"></span>
+                <h1 data-role="view-title"></h1>
             </div>
         </div>
         
-        <!-- application views will be rendered here -->   
+        <!-- application views will be rendered here -->
         
         <div data-role="footer">
             <div data-role="tabstrip">
-                <a href="views/register/register.html" data-icon="contacts">Register</a>
+                <a href="views/register/register.html" data-icon="contacts" data-show="app.auth.isAuthenticated">Register</a>
                 <a href="views/login/login.html" data-icon="contacts">Login</a>
+                
                 <a href="views/home/home.html" data-icon="home">Home</a>
-                <a href="views/all-recipes/all-recipes.html" data-icon="mostviewed">All Recipes</a>
+                
+                <a href="views/all-recipes/all-recipes.html" data-icon="mostviewed">Recipes</a>
+                <a href="views/all-categories/all-categories.html" data-icon="mostviewed">Categories</a>
             </div>
         </div>
     </div>

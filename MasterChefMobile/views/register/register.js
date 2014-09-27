@@ -11,8 +11,7 @@ app.register = app.register || {};
                 alert('Passwords dont match');
             }
             
-            alert(this.get('regUsername'));
-            alert(this.get('regPassword'));
+            app.auth.login();
         }
     });
 }(app));

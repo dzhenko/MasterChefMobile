@@ -81,12 +81,10 @@ var app = app || {};
         function allRecipes() {
             var deferred = new $.Deferred();
             
-            var tempVar = 'Y4vAU-yrXoEeYfeuRlClvV6naMwyUmpST0GUiAYF36v_V-4I3HdxSfupsPVMSgWR8KTqwMcZyFfwcNLujHXsdbuJCtl7jeK9Ox8t-aVIiJIasxrt99qL6JgzcxmJ-lMR5LaaXClLSi-C9zDrB59v7GFKnBt0ra36qi5TUlnxcakx7yONG7AzUfl8P1TpUWjpS1Eqx6tNx4XRx-epdcruwyqHqxo0O2iA2xqxaQyY9USTBsUJN3KCoCgsgTbIrEPuyHiqkrRjJJ_tsuZQ6N7WQbGiZ0P-e11B0qfrrNu3TNx0W3hB4h0UcPiIMXKFeiV_yAVmKZBSpHw6JZYrNlGFoOLMYNSrR00EBC2yes7lixSBdB3lnhnwKYRBsUnYtHhwMCy6-us12iCo2mp4N3LisIHYJRkRzaqoqwW2IcB2LHPAapd00ZeWoe0L4ah6k20o9pKdvDUkYNm3yuZzDMWBiXAGN9OD0raEOWcFapyIezc';
-
             $.ajax({
                 url:rootUrl + 'api/Recipes',
                 type:"GET",
-                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'bearer ' + tempVar /*app.auth.token()*/)},
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'bearer ' + app.auth.token())},
                 contentType:"application/x-www-form-urlencoded",
                 success: function(data){
                     deferred.resolve(data);

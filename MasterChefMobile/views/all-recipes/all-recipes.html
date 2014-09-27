@@ -1,7 +1,7 @@
 <div data-role="view" data-layout="main-layout" data-title="All Recipes"     
     id="all-recipes-view" data-id="all-recipes-view" data-show="app.allRecipes.init">
 
-    <div data-role="scrollview"
+    <div data-role="listview"
         data-bind="source : recipes"
         data-template="all-recipes-template"
         data-content-height="100%"
@@ -14,8 +14,8 @@
             <textarea id="commentText" data-bind="value:commentText" class="form-control" rows="2"></textarea>
         </div>
         <div class="btn-group btn-group-justified buttons">
-            <a data-role="button" data-click="app.allRecipes.model.closeModal" type="button" id="do-cancel-btn" class="btn">Cancel</a>
-            <a data-role="button" data-click="app.allRecipes.model.comment" type="button" id="do-comment-btn" class="btn">Comment</a>
+            <a data-role="button" data-click="app.allRecipes.model.closeModal" type="button" id="do-cancel-btn" class="btn btn-primary">Cancel</a>
+            <a data-role="button" data-click="app.allRecipes.model.comment" type="button" id="do-comment-btn" class="btn btn-success">Comment</a>
         </div>
     </div>
 </div>

@@ -19,12 +19,12 @@ app.allRecipes = app.allRecipes || {};
         var viewModel = kendo.observable({
             recipes: dataSource,
             onLikeClick : function(e) {
-                app.requester.actions.like(e.currentTarget.dataset.id).then(function() {
-                    e.currentTarget.innerText = e.currentTarget.innerText === "Like" ? "Unlike" : "Like";
+                app.requester.actions.like(e.button.context.dataset.id).then(function() {
+                    e.button.context.innerText = e.button.context.innerText === "Like" ? "Unlike" : "Like";
                 });
             },
             onCommentClick : function(e) {
-                currentClickedId = e.currentTarget.dataset.id;
+                currentClickedId = e.button.context.dataset.id;
             }
         });
         

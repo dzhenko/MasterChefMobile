@@ -13,26 +13,25 @@ app.register = app.register || {};
             
             var isUsernameValid = app.validator.isValidEmail(email);
             if (!isUsernameValid) {
-                app.notify('The email is incorrect.');
+                app.notifier.error('The email is incorrect.');
                 return;
             }
             
             var isPasswordValid = app.validator.isValidPassword(password);
             var isConfirmPasswordValid = app.validator.isValidPassword(confirmPassword);
             if (!isPasswordValid || !isConfirmPasswordValid) {
-                app.notify('The password is incorrect.');
+                app.notifier.error('The password is incorrect.');
                 return;
             }
             
             if (!app.validator.passwordsMatches(password, confirmPassword)) {
-               app.notify('The password and confirmation password do not match.');
+               app.notifier.error('The password and confirmation password do not match.');
                 return;
             }
             
             app.auth.register(email, password, confirmPassword).then(function(data) {
-                app.auth.login(email, password).then(function(data){
-                    app.main.navigate('views/home/home.html');
-                }, app.errorHandler);
+                app.notifier.success('Registered');
+                app.main.navigate('views/login/login.html');
             }, app.errorHandler);
         }
     });

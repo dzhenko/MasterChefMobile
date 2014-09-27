@@ -3,7 +3,7 @@ var app = app || {};
 (function () {
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
-      //$('#loggedInFooter').hide();
+      $('#loggedInFooter').hide();
       // hide the splash screen as soon as the app is ready. otherwise
       // Cordova will wait 5 very long seconds to do it for you.
       navigator.splashscreen.hide();
@@ -13,8 +13,16 @@ var app = app || {};
           console.log('Error!' + error);
       }
         
-      app.notify = function(message) {
-          navigator.notification.alert(message);
+      app.notifier = {
+          success: function(message){
+              toastr.success(message, 'Success', {timeOut: 2000});
+          },
+          warning : function(message) {
+              toastr.warning(message, 'Warning', {timeOut: 2000});
+          },
+          error: function(message){
+              toastr.error(message, 'Error', {timeOut: 2000});
+          }
       }
 
       app.main = new kendo.mobile.Application(document.body, {

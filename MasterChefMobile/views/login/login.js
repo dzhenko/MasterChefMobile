@@ -13,10 +13,11 @@ app.login = app.login || {};
             var isPasswordValid = app.validator.isValidPassword(password);
             
             if (!isEmailValid || !isPasswordValid) {
-                app.notify('The email or password is incorrect.');
+                app.notifier.error('The email or password is incorrect.');
             }
             
             app.auth.login(email, password).then(function(data){
+                app.notifier.success('Logged in');
                 app.main.navigate('views/home/home.html');
             }, app.errorHandler);
         },

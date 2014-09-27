@@ -8,9 +8,8 @@ var app = app || {};
             .then(function(data) {
                 localStorage.setItem("recipesBearerToken", data.access_token);
                 
-                $('#loggedOutFooter').hide(function(){
-                    $('#loggedInFooter').show();
-                });
+                $('#loggedOutFooter').hide();
+                $('#loggedInFooter').show().css('display','table');
                 
                 return data;
             }, app.errorHandler);
@@ -25,9 +24,9 @@ var app = app || {};
             .then(function(data){
                 localStorage.removeItem("recipesBearerToken");
                 
-                $('#loggedInFooter').fadeOut(function() {
-                    $('#loggedOutFooter').fadeIn();
-                });
+                $('#loggedInFooter').hide();
+                $('#loggedOutFooter').show().css('display','table');
+                
             }, app.errorHandler);
     }
     

@@ -22,3 +22,21 @@ a {
     margin-bottom:3em;
     color: #FFF;
 }
+
+.btn-success {
+    background-color:#5cb85c !important;
+    border-color:#4cae4c !important;
+    color: White !important;
+}
+
+.btn-info {
+    background-color:#5bc0de !important;
+    border-color: #46b8da !important;
+    color: White !important;
+}
+
+.btn-primary {
+    background-color:#ad1d28 !important;
+    border-color:#ad1d28 !important;
+    color:#fff !important;
+}

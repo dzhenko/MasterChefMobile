@@ -12,6 +12,7 @@ app.register = app.register || {};
             }
             
             app.auth.login();
+            app.main.navigate('views/home/home.html');
         }
     });
 }(app));

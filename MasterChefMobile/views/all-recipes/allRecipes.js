@@ -18,13 +18,11 @@ app.allRecipes = app.allRecipes || {};
         var viewModel = kendo.observable({
             recipes: dataSource,
             onLikeClick : function(e) {
-                var id = e.likeButton.data().id;
-                alert(id);
-                console.log('clicked');
+                alert(1);
             },
             onCommentClick : function(e) {
                 var id = e.commentButton.data().id;
-                alert(id);
+                 alert(1);
             },
         });
         

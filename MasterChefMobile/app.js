@@ -1,9 +1,6 @@
+var app = app || {};
 
 (function () {
-    // store a reference to the application object that will be created
-    // later on so that we can use it if need be
-    var app;
-
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
       $('#loggedInFooter').hide();
@@ -11,7 +8,7 @@
       // Cordova will wait 5 very long seconds to do it for you.
       navigator.splashscreen.hide();
 
-      app = new kendo.mobile.Application(document.body, {
+      app.main = new kendo.mobile.Application(document.body, {
         
         // you can change the default transition (slide, zoom or fade)
         transition: 'slide',
@@ -21,7 +18,7 @@
         skin: 'flat',
 
         // the application needs to know which view to load first
-        initial: 'views/register/register.html'
+        initial: 'views/login/login.html'
       });
         
     }, false);

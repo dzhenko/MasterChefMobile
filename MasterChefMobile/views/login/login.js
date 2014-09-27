@@ -8,6 +8,9 @@ app.login = app.login || {};
         loginClick : function() {
             alert(this.get('username'));
             alert(this.get('password'));
+        },
+        registerClick: function() {
+            app.main.navigate('views/register/register.html');
         }
     });
 }(app));

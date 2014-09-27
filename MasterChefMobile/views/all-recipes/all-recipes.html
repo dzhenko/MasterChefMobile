@@ -1,36 +1,13 @@
-<div data-role="view" data-title="All Recipes">
+<div data-role="view" data-layout="main-layout" data-title="All Recipes" id="all-recipes-view" data-id="all-recipes-view">
     <ul data-role="listview" data-source="app.allRecipes.model" data-pull-to-refresh="true" data-append-on-refresh="true" 
         data-template="all-recipes-template">
     </ul>
 </div>
 
 <script type="text/x-kendo-template" id="all-recipes-template">
-    <div class="recipe">
+    <div class="all-recipes-recipe">
         <img src="#=Image#" alt="#:Name# image" class="pullImage"/>
         <h3>#=Name#</h3>
         <p>#=Description#</p>
     </div>
 </script>
-
-<style scoped>
-    .recipe h3 {
-        font-size: 1.3em;
-        line-height: 1.4em;
-        margin: 0;
-        padding: 0;
-        height: 1.3em;
-        overflow: hidden;
-    }
-    .recipe p {
-        font-size: 1em;
-        margin: 0;
-        padding: .3em 0 0;
-    }
-    .pullImage {
-        width: 64px;
-        height: 64px;
-        border-radius: 3px;
-        float: left;
-        margin-right: 10px;
-    }
-</style>

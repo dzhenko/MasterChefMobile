@@ -9,6 +9,7 @@ var app = app || {};
             
             $('#loggedOutFooter').fadeOut(function() {
                 $('#loggedInFooter').fadeIn();
+                $('#loggedInFooter').css('display', 'table');
             });
         },
         token: function(){

@@ -41,15 +41,21 @@
         
         <!-- application views will be rendered here -->
         
-        <div data-role="footer">
+        <div data-role="footer" id="loggedOutFooter">
             <div data-role="tabstrip">
                 <a href="views/register/register.html" data-icon="contacts" data-show="app.auth.isAuthenticated">Register</a>
-                <a href="views/login/login.html" data-icon="contacts">Login</a>
-                
                 <a href="views/home/home.html" data-icon="home">Home</a>
-                
+                <a href="views/login/login.html" data-icon="contacts">Login</a>
+            </div>
+        </div>
+        
+        <div data-role="footer" id="loggedInFooter">
+            <div data-role="tabstrip">
+                <a href="views/all-categories/all-categories.html" data-icon="add">Add</a>
                 <a href="views/all-recipes/all-recipes.html" data-icon="mostviewed">Recipes</a>
-                <a href="views/all-categories/all-categories.html" data-icon="mostviewed">Categories</a>
+                <a href="views/home/home.html" data-icon="home">Home</a>
+                <a href="views/all-recipes/all-recipes.html" data-icon="search">Find</a>
+                <a href="views/all-categories/all-categories.html" data-icon="settings">Profile</a>
             </div>
         </div>
     </div>

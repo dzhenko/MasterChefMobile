@@ -7,6 +7,15 @@ var app = app || {};
       // hide the splash screen as soon as the app is ready. otherwise
       // Cordova will wait 5 very long seconds to do it for you.
       navigator.splashscreen.hide();
+        
+      // default error handler
+      app.errorHandler = function(error) {
+          console.log('Error!' + error);
+      }
+        
+      app.notify = function(message) {
+          navigator.notification.alert(message);
+      }
 
       app.main = new kendo.mobile.Application(document.body, {
         

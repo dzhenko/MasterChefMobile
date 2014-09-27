@@ -13,7 +13,7 @@ app.login = app.login || {};
             var isPasswordValid = app.validator.isValidPassword(password);
             
             if (!isEmailValid || !isPasswordValid) {
-                navigator.notification.alert('The email or password is incorrect.');
+                app.notify('The email or password is incorrect.');
             }
             
             app.auth.login(email, password);

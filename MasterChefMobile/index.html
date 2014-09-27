@@ -10,11 +10,10 @@
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     
     <link href="styles/main.css" rel="stylesheet" />
+    <link href="styles/app.css" rel="stylesheet" />
    
     <link href="styles/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="styles/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
-
-    <link href="styles/app.css" rel="stylesheet" />
     
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
@@ -26,7 +25,10 @@
     <script src="scripts/auth.js"></script>
     <script src="scripts/requester.js"></script>
     
-    <script src="views/all-recipes/all-recipes.js"></script>
+    <script src="views/login/login.js"></script>
+    <script src="views/register/register.js"></script>
+    <script src="views/home/home.js"></script>
+    <script src="views/all-recipes/allRecipes.js"></script>
 </head>
 <body> 
     <div data-role="layout" data-id="main">
@@ -40,10 +42,10 @@
         
         <div data-role="footer">
             <div data-role="tabstrip">
+                <a href="views/register/register.html" data-icon="contacts">Register</a>
+                <a href="views/login/login.html" data-icon="contacts">Login</a>
                 <a href="views/home/home.html" data-icon="home">Home</a>
                 <a href="views/all-recipes/all-recipes.html" data-icon="settings">All Recipes</a>
-                <!--<a href="views/settings/settings.html" data-icon="settings">Settings</a>-->
-                <a href="views/contacts/contacts.html" data-icon="contacts">Contacts</a>
             </div>
         </div>
     </div>

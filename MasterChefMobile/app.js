@@ -4,27 +4,6 @@
     // later on so that we can use it if need be
     var app;
 
-    // create an object to store the models for each view
-    window.APP = {
-      models: {
-        home: {
-          title: 'Home'
-        },
-        settings: {
-          title: 'Settings'
-        },
-        contacts: {
-          title: 'Contacts',
-          ds: new kendo.data.DataSource({
-            data: [{ id: 1, name: 'Bob' }, { id: 2, name: 'Mary' }, { id: 3, name: 'John' }]
-          }),
-          alert: function(e) {
-            alert(e.data.name);
-          }
-        }
-      }
-    };
-
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
       // hide the splash screen as soon as the app is ready. otherwise
@@ -34,7 +13,7 @@
       app = new kendo.mobile.Application(document.body, {
         
         // you can change the default transition (slide, zoom or fade)
-        transition: 'zoom',
+        transition: 'slide',
         
         // comment out the following line to get a UI which matches the look
         // and feel of the operating system

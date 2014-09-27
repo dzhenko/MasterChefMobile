@@ -4,37 +4,47 @@ app.home = app.home || {};
 (function (app) {
     'use strict'
 
-    app.home.init = function () {
-        app.home.model = {
-            
-        }
-    };
+    app.home.model = {
+        homeTitle: 'Recent events:',
+        events: [{
+            link: '',
+            message: 'ivan@abv.bg liked a recipe can you hear me guys'
+        },{
+            link: '',
+            message: 'hi guys'
+        },{
+            link: '',
+            message: 'hello guys'
+        },{
+            link: '',
+            message: 'hi guys'
+        },{
+            link: '',
+            message: 'waa guys'
+        },{
+            link: '',
+            message: 'ee guys'
+        },{
+            link: '',
+            message: 'waa guys'
+        },{
+            link: '',
+            message: 'ee guys'
+        }]
+    }
+    
+    
+    
+    //var pubnub = PUBNUB.init({
+    //    subscribe_key: 'sub-c-e6269c5c-3d90-11e4-87bf-02ee2ddab7fe'
+    //});
+    //pubnub.subscribe({
+    //    channel: 'MasterChef',
+    //    message: function(message) {
+    //        app.home.model.events.push({
+    //            link: message.substr(0, 36),
+    //            message: message.substr(39)
+    //        });
+    //    }
+    //});
 }(app));
-
-
-/*function loadPhotos() {
-            window.everlive.data('GeoPic').get()
-                .then(function (data) {
-                    var files = [];
-                    data.result.forEach(function (file) {
-                        $.ajax({
-                            type: "GET",
-                            url: 'http://api.everlive.com/v1/CymfvNenU2VZSJ23/Files/' + file.Pic,
-                            //headers: { "Authorization" : "Bearer your-access-token-here" },
-                            contentType: "application/json",
-                        }).then(function (picData) {
-                            files.push({
-                                'imageUrl': picData.Result.Uri,
-                                'location': file.Location
-                            });
-                        })
-                        .then(function (){
-                            $("#images").kendoMobileListView({
-                        dataSource: files,
-                        template: "<img src='#= data.imageUrl #'>"
-                    });
-                        });
-                    });
-                });
-        }
-        loadPhotos();*/

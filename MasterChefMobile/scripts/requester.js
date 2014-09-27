@@ -81,8 +81,8 @@ var app = app || {};
         function allRecipes() {
             var deferred = new $.Deferred();
             
-            var tempVar = 'ONxIEq20MwgmjWxji-YC9cWf0kbJILfchxIx42Y9TSlWqddB22dhfjpYfIljdEdTGNF80cJGLGIhW1sJgzdCH8dNzEpy3PglRXdo4OsI56zF4Xo4RAYYTlZ0tQ4m1rNxfC7E-m-NypAWJdCH4vnUCEVYPgRH3bezvCOeLY6RgDaZbAYj2iBH34Fg6w2QEknL-CdYC8M4xzmL-UcQJdaczfhgcCyF_8EgefZ8K1_Q7XjGHC1rSX7jzZRzUHD88Yuo0KE3EHVYkvH67eqKvFPQbbfw0QU7ZO_jtxYcjHGAW9raGxWI3oV5l67iVrLXNSLDnwTFZQhMTONQpWmsXYvd1jz6-dOaTvrSAE4kTfn-mFIB7k_wao_ELOHMOKVfPs1mWdtC_DlvNw5UuMwRhPXPJiiUkcNELB5-UpvC23nbe7c8PDtaT8SS3SQw9jqQFVkyRqCRHjAumJ7QY16CLPIZaFa2qqz3sGfGxc1DeDWzb07bPYKepWW18_3v59r_FVuZ';
-            console.log('called');
+            var tempVar = 'Y4vAU-yrXoEeYfeuRlClvV6naMwyUmpST0GUiAYF36v_V-4I3HdxSfupsPVMSgWR8KTqwMcZyFfwcNLujHXsdbuJCtl7jeK9Ox8t-aVIiJIasxrt99qL6JgzcxmJ-lMR5LaaXClLSi-C9zDrB59v7GFKnBt0ra36qi5TUlnxcakx7yONG7AzUfl8P1TpUWjpS1Eqx6tNx4XRx-epdcruwyqHqxo0O2iA2xqxaQyY9USTBsUJN3KCoCgsgTbIrEPuyHiqkrRjJJ_tsuZQ6N7WQbGiZ0P-e11B0qfrrNu3TNx0W3hB4h0UcPiIMXKFeiV_yAVmKZBSpHw6JZYrNlGFoOLMYNSrR00EBC2yes7lixSBdB3lnhnwKYRBsUnYtHhwMCy6-us12iCo2mp4N3LisIHYJRkRzaqoqwW2IcB2LHPAapd00ZeWoe0L4ah6k20o9pKdvDUkYNm3yuZzDMWBiXAGN9OD0raEOWcFapyIezc';
+
             $.ajax({
                 url:rootUrl + 'api/Recipes',
                 type:"GET",

@@ -1,4 +1,11 @@
-<div data-role="view" data-title="Home" data-layout="main" data-model="APP.models.home">
-  <h1 data-bind="html: title"></h1>
-
+<div data-role="view" data-title="Home" data-layout="main" data-model="app.home.model">
+    <p>Newest Recipe</p>
+    
+    <div data-role="listview"
+        data-template="small-event-template"
+        data-bind="source: events"></div>
 </div>
+
+<script type="text/x-kendo-template" id="small-event-template">
+    <a href="\\#/recipe/#:link#">#:message#</a>
+</script>

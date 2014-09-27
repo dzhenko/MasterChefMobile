@@ -4,7 +4,7 @@ app.singleRecipe = app.singleRecipe || {};
 (function (app) {
     'use strict'
 
-    app.singleRecipe.init = function () {
+    app.singleRecipe.init = function (e) {
         var dataSource = new kendo.data.DataSource({
             transport: {
                 read : function(options) {
@@ -16,14 +16,12 @@ app.singleRecipe = app.singleRecipe || {};
             }
         });
         
+        alert(e.view.params.id);
+        
         var viewModel = kendo.observable({
-            recipes: dataSource,
-            onSelect: function(e) {
-                alert(e);
-            }
+            recipe: dataSource
         });
         
         kendo.bind($("#single-recipe-view"), viewModel);
     };
-    app.singleRecipe.init();
 }(app));

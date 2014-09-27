@@ -56,6 +56,7 @@ var app = app || {};
                 url:rootUrl + 'api/Account/Logout',
                 type:"POST",
                 contentType:"application/x-www-form-urlencoded",
+                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'bearer ' + app.auth.token())},
                 success: function(data){
                     deferred.resolve(data);
                 }

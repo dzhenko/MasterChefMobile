@@ -3,28 +3,28 @@
         <div class="form-group">
             <label for="recipe-name" class="col-md-12 col-xs-12 col-lg-12 control-label">Name</label>
             <div class="col-md-12 col-xs-12 col-lg-12">
-                <input id="recipe-name" type="text" placeholder="Name" data-bind="value: name" required="required" class="form-control" />
+                <input id="recipe-name" type="text" placeholder="something original" data-bind="value: name" required="required" class="form-control" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="recipe-description" class="col-md-12 col-xs-12 col-lg-12 control-label">Name</label>
+            <label for="recipe-description" class="col-md-12 col-xs-12 col-lg-12 control-label">Description</label>
             <div class="col-md-12 col-xs-12 col-lg-12">
-                <input id="recipe-description" type="text" placeholder="Description" data-bind="value: description" required="required" class="form-control" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="recipe-image" class="col-md-12 col-xs-12 col-lg-12 control-label">Image</label>
-            <div class="col-md-12 col-xs-12 col-lg-12">
-                <button data-role="button" data-icon="camera" data-align="right" data-bind="click: addImage">Take a picture</button>
+                <input id="recipe-description" type="text" placeholder="keep it short" data-bind="value: description" required="required" class="form-control" />
             </div>
         </div>
 
         <div class="form-group">
             <label for="recipe-products" class="col-md-12 col-xs-12 col-lg-12 control-label">Products</label>
             <div class="col-md-12 col-xs-12 col-lg-12">
-                <input id="recipe-products" type="text" placeholder="Producs" data-bind="value: products" required="required" class="form-control" />
+                <input id="recipe-products" type="text" placeholder="time to shop" data-bind="value: products" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="recipe-image" class="col-md-12 col-xs-12 col-lg-12 control-label">Image</label>
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <button data-role="button" data-icon="camera" class="btn btn-success" data-align="right" data-bind="click: addImage">Take a picture</button>
             </div>
         </div>
 
@@ -32,12 +32,10 @@
             <label for="dropdown" class="col-md-12 col-xs-12 col-lg-12 control-label">Category</label>
             <div class="col-md-12 col-xs-12 col-lg-12">
                 <select id="dropdown" data-bind="value: category">
-                    <option value="category-1">category-1</option>
-                    <option value="category-2">category-2</option>
-                    <option value="category-3">category-3</option>
-                    <option value="category-4">category-4</option>
-                    <option value="category-4">category-5</option>
-
+                    <option value="Main Dish" selected="selected">Main Dish</option>
+                    <option value="Soup">Soup</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Dessert">Dessert</option>
                 </select>
             </div>
         </div>

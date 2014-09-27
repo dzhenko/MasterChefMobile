@@ -6,8 +6,7 @@ var app = app || {};
     function login(email, password) {
         return app.requester.user.login(email, password)
             .then(function(data) {
-                localStorage.setItem("recipesBearerToken", data.access_toen);
-                
+                localStorage.setItem("recipesBearerToken", data.access_token);
                 
                 $('#loggedOutFooter').hide(function(){
                     $('#loggedInFooter').show();
@@ -22,11 +21,14 @@ var app = app || {};
     }
 
     function logout() {
-        localStorage.removeItem("recipesBearerToken");
-            
-        $('#loggedInFooter').fadeOut(function() {
-            $('#loggedOutFooter').fadeIn();
-        });
+        return app.requester.user.logout()
+            .then(function(data){
+                localStorage.removeItem("recipesBearerToken");
+                
+                $('#loggedInFooter').fadeOut(function() {
+                    $('#loggedOutFooter').fadeIn();
+                });
+            }, app.errorHandler);
     }
     
     app.auth = {

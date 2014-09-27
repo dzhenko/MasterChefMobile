@@ -6,20 +6,23 @@ var app = app || {};
 
         var rootUrl = 'http://masterchef-1.apphb.com/';
 
-        function register(username, password) {
+        function register(email, password, confirmPassword) {
             var deferred = new $.Deferred();
 
             $.ajax({
                 url:rootUrl + 'api/Account/Register',
                 type:"POST",
                 data:{
-                    Email: username,
+                    Email: email,
                     Password: password,
-                    ConfirmPassword: password
+                    ConfirmPassword: confirmPassword
                 },
                 contentType:"application/x-www-form-urlencoded",
                 success: function(data){
-                    deferred.resolve(data)
+                    deferred.resolve(data);
+                },
+                error: function(error) {
+                    deferred.reject(error);
                 }
             });
 

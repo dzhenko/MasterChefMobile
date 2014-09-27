@@ -8,13 +8,10 @@ var app = app || {};
             .then(function(data) {
                 localStorage.setItem("recipesBearerToken", data.access_toen);
                 
-                $('#loggedOutFooter').toggle();
-                if ($('#loggedInFooter').is(":visible")) {
-                    $('#loggedInFooter').hide();
-                } else {
-                    $('#loggedInFooter').show();                
-                    $('#loggedInFooter').css('display', 'table');
-                }
+                
+                $('#loggedOutFooter').hide(function(){
+                    $('#loggedInFooter').show();
+                });
                 
                 return data;
             }, app.errorHandler);

@@ -3,7 +3,8 @@ app.allRecipes = app.allRecipes || {};
 
 (function (app) {
     'use strict'
-
+    var currentClickedId = 0;
+    
     app.allRecipes.init = function () {
         var dataSource = new kendo.data.DataSource({
             transport: {
@@ -18,14 +19,26 @@ app.allRecipes = app.allRecipes || {};
         var viewModel = kendo.observable({
             recipes: dataSource,
             onLikeClick : function(e) {
-                alert(1);
+                app.requester.actions.like(e.currentTarget.dataset.id).then(function() {
+                    e.currentTarget.innerText = e.currentTarget.innerText === "Like" ? "Unlike" : "Like";
+                });
             },
             onCommentClick : function(e) {
-                var id = e.commentButton.data().id;
-                 alert(1);
-            },
+                currentClickedId = e.currentTarget.dataset.id;
+            }
         });
         
         kendo.bind($("#all-recipes-view"), viewModel);
     };
+    
+    app.allRecipes.model = {
+        closeModal: function() {
+            $("#modalview-comment").kendoMobileModalView("close");
+        },
+        comment: function() {
+            app.requester.actions.comment(currentClickedId, $('#commentText').val());
+            $('#commentText').val('');
+            $("#modalview-comment").kendoMobileModalView("close");
+        }
+    }
 }(app));

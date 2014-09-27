@@ -9,7 +9,6 @@ app.allRecipes = app.allRecipes || {};
             transport: {
                 read : function(options) {
                     app.requester.recipe.all().then(function(data){
-                        console.log(data);
                         options.success(data);
                     })
                 }
@@ -18,12 +17,17 @@ app.allRecipes = app.allRecipes || {};
         
         var viewModel = kendo.observable({
             recipes: dataSource,
-            onSelect: function(e) {
-                alert(e);
-            }
+            onLikeClick : function(e) {
+                var id = e.likeButton.data().id;
+                alert(id);
+                console.log('clicked');
+            },
+            onCommentClick : function(e) {
+                var id = e.commentButton.data().id;
+                alert(id);
+            },
         });
         
         kendo.bind($("#all-recipes-view"), viewModel);
     };
-    app.allRecipes.init();
 }(app));

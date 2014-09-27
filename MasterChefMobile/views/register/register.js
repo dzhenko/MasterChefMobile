@@ -29,7 +29,11 @@ app.register = app.register || {};
                 return;
             }
             
-            app.auth.register(email, password, confirmPassword);
+            app.auth.register(email, password, confirmPassword).then(function(data) {
+                app.auth.login(email, password).then(function(data){
+                    app.main.navigate('views/home/home.html');
+                }, app.errorHandler);
+            }, app.errorHandler);
         }
     });
 }(app));

@@ -4,27 +4,24 @@ var app = app || {};
     'use strict';
     
     function login(email, password) {
-        app.requester.user.login(email, password)
+        return app.requester.user.login(email, password)
             .then(function(data) {
                 localStorage.setItem("recipesBearerToken", data.access_toen);
                 
                 $('#loggedOutFooter').toggle();
                 if ($('#loggedInFooter').is(":visible")) {
-                    $('#loggedInFooter').hide();                
+                    $('#loggedInFooter').hide();
                 } else {
                     $('#loggedInFooter').show();                
                     $('#loggedInFooter').css('display', 'table');
                 }
                 
-                app.main.navigate('views/home/home.html');
+                return data;
             }, app.errorHandler);
     };
     
     function register(email, password, confirmPassword) {
-        app.requester.user.register(email, password, confirmPassword)
-            .then(function(data) {
-                login(email, password);
-            }, app.errorHandler);
+        return app.requester.user.register(email, password, confirmPassword);
     }
 
     function logout() {

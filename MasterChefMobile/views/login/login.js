@@ -16,7 +16,9 @@ app.login = app.login || {};
                 app.notify('The email or password is incorrect.');
             }
             
-            app.auth.login(email, password);
+            app.auth.login(email, password).then(function(data){
+                app.main.navigate('views/home/home.html');
+            }, app.errorHandler);
         },
         registerClick: function() {
             app.main.navigate('views/register/register.html');

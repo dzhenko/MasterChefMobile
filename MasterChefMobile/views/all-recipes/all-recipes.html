@@ -7,6 +7,17 @@
         data-content-height="100%"
         data-enable-pager="false">
     </div>
+    
+    <div data-role="modalview" id="modalview-comment" class="container">
+        <div class="form-group col-md-12 col-xs-12 col-lg-12">
+            <h3 for="commentText" class="text-center control-label">Write a comment</h3>
+            <textarea id="commentText" data-bind="value:commentText" class="form-control" rows="2"></textarea>
+        </div>
+        <div class="btn-group btn-group-justified buttons">
+            <a data-role="button" data-click="app.allRecipes.model.closeModal" type="button" id="do-cancel-btn" class="btn">Cancel</a>
+            <a data-role="button" data-click="app.allRecipes.model.comment" type="button" id="do-comment-btn" class="btn">Comment</a>
+        </div>
+    </div>
 </div>
 
 <script id="all-recipes-template" type="text/x-kendo-template">
@@ -15,8 +26,8 @@
         <div class="image" style="background-image: url(#: Image #); background-size:cover"></div>
     </div>
     <div class="btn-group btn-group-justified buttons">
-        <a data-role="button" id="likeButton" data-bind="events : {click : onLikeClick}" data-id="#:Id#" class="btn btn-info">Like</a>
-        <a href="views/single-recipe/single-recipe.html?id=#:Id#" class="btn btn-success">View</a>
-        <a data-role="button" id="commentButton" data-bind="events : {click : onCommentClick}" data-id="#:Id#" class="btn btn-primary">Comment</a>
+        <a data-role="button" id="likeButton" data-bind="events : {click : onLikeClick}" data-id="#:Id#" class="btn btn-info">#:LikedByUser===true ? 'Unlike' : 'Like'#</a>
+        <a href="views/single-recipe/single-recipe.html?id=#:Id#" class="btn btn-primary">View</a>
+        <a data-role="button" data-rel="modalview" href="\#modalview-comment" id="commentButton" data-bind="events : {click : onCommentClick}" data-id="#:Id#" class="btn btn-success">Comment</a>
     </div>
 </script>

@@ -5,7 +5,7 @@ app.login = app.login || {};
     app.login.model = kendo.observable({
         username: '',
         password: '',
-        loginClick : function() {
+        loginClick : function() {          
             var email = this.get('username');
             var password = this.get('password');
             
@@ -14,6 +14,12 @@ app.login = app.login || {};
             
             if (!isEmailValid || !isPasswordValid) {
                 app.notifier.error('The email or password is incorrect.');
+                return;
+            }
+            
+            if (!app.connectionApi.hasConnection()) {
+                app.notifier.error('Please check your connection before login...');
+                return;
             }
             
             app.auth.login(email, password).then(function(data){

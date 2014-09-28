@@ -29,6 +29,11 @@ app.register = app.register || {};
                 return;
             }
             
+            if (!app.connectionApi.hasConnection()) {
+                app.notifier.error('Please check your connection before register...');
+                return;
+            }
+            
             app.auth.register(email, password, confirmPassword).then(function(data) {
                 app.notifier.success('Registered');
                 app.main.navigate('views/login/login.html');

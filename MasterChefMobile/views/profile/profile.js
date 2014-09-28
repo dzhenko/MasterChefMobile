@@ -11,6 +11,7 @@ app.profile = app.profile || {};
                  lat: '',
                  long: '',
                  location: '',
+                 connectionType: app.connectionApi.getConnectionDescription(),
                  logout : function() {
                      app.auth.logout();
                      app.notifier.success('Logout');

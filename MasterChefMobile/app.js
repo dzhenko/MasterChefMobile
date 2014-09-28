@@ -24,6 +24,7 @@ var app = app || {};
         
       //app default error handler
       app.errorHandler = function(error) {
+          console.log(error)
           app.notifier.error(error);
       }
 

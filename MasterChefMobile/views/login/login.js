@@ -18,6 +18,7 @@ app.login = app.login || {};
             }
             
             if (!app.connectionApi.hasConnection()) {
+                app.notificationsApi.beep(1);
                 app.notifier.error('Please check your connection before login...');
                 return;
             }

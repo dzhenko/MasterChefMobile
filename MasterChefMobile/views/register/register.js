@@ -30,6 +30,7 @@ app.register = app.register || {};
             }
             
             if (!app.connectionApi.hasConnection()) {
+                app.notificationsApi.beep(1);
                 app.notifier.error('Please check your connection before register...');
                 return;
             }

@@ -35,6 +35,7 @@ app.createRecipe = app.createRecipe || {};
                 var products = this.get('products');
                 var category = this.get('category');
                 
+                // TODO
                 console.log(name);
                 console.log(description);
                 console.log(image);
@@ -43,23 +44,55 @@ app.createRecipe = app.createRecipe || {};
             },
             addImage: function() {
                 var error = function () {
-                        navigator.notification.alert("Unfortunately we could not add the image");
-                    };
+                    navigator.notification.alert("Unfortunately we could not add the image");
+                };
                 
                 var picConfig = {
-                        destinationType: Camera.DestinationType.DATA_URL,
-                        targetHeight: 400,
-                        targetWidth: 400
-                    };
+                    destinationType: Camera.DestinationType.DATA_URL,
+                    targetHeight: 400,
+                    targetWidth: 400
+                };
                 
                 var picSuccess = function (data) {
-                        console.log(data);
-                    };
+                     app.everlive.uploadImage(data, onSuccessUpload, onFailedUpload)
+                };
                 
                 navigator.camera.getPicture(picSuccess, error, picConfig);
             }
         });
         
+        function onSuccessUpload(data) {
+            app.everlive.getImageData(data.result.Id)
+                .then(function (data) {
+                    var imageUrl = app.constants.everlivePictureStorageUri + "/" + data.result[0].Uri;
+                    console.log("Url: " + imageUrl); // TODO
+                    viewModel.imageUrl = imageUrl;
+                }, function () {
+                    console.log("Cannot get image data!");
+                });
+        }
+        
+        function onFailedUpload() {
+            console.log("Cannot upload an image!");
+        }
+        
         kendo.bind($("#create-recipe-view"), viewModel);
     }
 }(app));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

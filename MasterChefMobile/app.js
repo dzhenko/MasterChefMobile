@@ -8,10 +8,10 @@ var app = app || {};
       // Cordova will wait 5 very long seconds to do it for you.
       navigator.splashscreen.hide();
         
-      // default error handler
-      app.errorHandler = function(error) {
-          console.log('Error!' + error);
-      }
+        //app default error handler
+        app.errorHandler = function(error) {
+            app.notifier.error(error);
+        }
         
       app.notifier = {
           success: function(message){

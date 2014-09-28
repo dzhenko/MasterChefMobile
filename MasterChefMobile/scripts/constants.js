@@ -7,6 +7,6 @@ var app = app || {};
     
     app.constants = {
         everliveApiKey: everliveApiKey,
-        everlivePictureStorageUri: "http://bs2.cdn.telerik.com/v1/" + everliveApiKey 
+        everlivePictureStorageUri: "http://api.everlive.com/v1/" + everliveApiKey + "/Files/"
     }
 }(app));

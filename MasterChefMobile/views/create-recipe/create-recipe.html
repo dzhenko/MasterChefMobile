@@ -11,21 +11,32 @@
         <div class="form-group">
             <label for="recipe-description" class="col-md-12 col-xs-12 col-lg-12 control-label">Description</label>
             <div class="col-md-12 col-xs-12 col-lg-12">
-                <input id="recipe-description" type="text" placeholder="keep it short" data-bind="value: description" required="required" class="form-control" />
+                <input id="recipe-description" type="text" placeholder="keep it short" data-bind="value: description"  class="form-control" />
             </div>
         </div>
 
         <div class="form-group">
             <label for="recipe-products" class="col-md-12 col-xs-12 col-lg-12 control-label">Products</label>
             <div class="col-md-12 col-xs-12 col-lg-12">
-                <input id="recipe-products" type="text" placeholder="time to shop" data-bind="value: products" required="required" class="form-control" />
+                <input id="recipe-products" type="text" placeholder="time to shop" data-bind="value: products" class="form-control" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="recipe-products" class="col-md-12 col-xs-12 col-lg-12 control-label">Directions</label>
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <input id="recipe-directions" type="text" placeholder="follow carefully" data-bind="value: directions" class="form-control" />
             </div>
         </div>
 
         <div class="form-group">
-            <label for="recipe-image" class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
+            <label for="recipe-image" class="col-md-12 col-xs-12 col-lg-12 control-label">Select picture</label>
             <div class="col-md-12 col-xs-12 col-lg-12">
-                <button data-role="button" data-icon="camera" class="btn btn-info col-md-12 col-xs-12 col-lg-12" data-align="right" data-bind="click: addImage">Take a picture</button>
+                <button data-role="button" data-icon="camera" class="btn btn-info col-md-12 col-xs-12 col-lg-12" data-align="right" data-bind="click: takeImage">Take a picture</button>
+                <span>or</span>
+                <button data-role="button" data-icon="action" class="btn btn-info col-md-12 col-xs-12 col-lg-12" data-align="right" data-bind="click: addImage">Upload a file</button>
+                <br/><span>or</span>
+                <input type="text" placeholder="paste a URL" data-bind="value: pictureUrl" class="form-control" />
             </div>
         </div>
         
@@ -55,7 +66,7 @@
             <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
             <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
             <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
-            <button data-bind="events: {click : createRecipe}" class="btn btn-success col-md-10 col-xs-10 col-lg-10 col-md-offset-1 col-xs-offset-1 col-lg-offset-1">Save</button>
+            <button data-bind="events: {click : createRecipe}" class="btn btn-success col-md-10 col-xs-10 col-lg-10 col-md-offset-1 col-xs-offset-1 col-lg-offset-1">Add</button>
         </div>
     </div>
 </div>

@@ -7,7 +7,6 @@ app.createRecipe = app.createRecipe || {};
             transport: {
                 read : function(options) {
                     app.requester.categories().then(function(data){
-                        console.log(data);
                         options.success(data);
                     })
                 }
@@ -20,8 +19,10 @@ app.createRecipe = app.createRecipe || {};
         
         var viewModel = kendo.observable({
             allCategories: dataSource,
+            pictureUrl: '',
             name: '',
             description: '',
+            directions: '',
             imageUrl: '',
             products: '',
             category: 'Main Dish',
@@ -29,17 +30,21 @@ app.createRecipe = app.createRecipe || {};
                 app.main.navigate('views/all-recipes/all-recipes.html');    
             },
             createRecipe: function() {
-                var name = this.get('name');
-                var description = this.get('description');
-                var image = this.get('imageUrl');
-                var products = this.get('products');
-                var category = this.get('category');
+                var imageMagic = this.get('imageUrl');/* magic with file upload or camera */
                 
-                console.log(name);
-                console.log(description);
-                console.log(image);
-                console.log(products);
-                console.log(category);
+                var recipeToCreate = {
+                    Name: this.get('name'),
+                    Category : this.get('category'),
+                    Description: this.get('description'),
+                    Image: imageMagic,
+                    PreparationSteps : this.get('directions').split('.'),
+                    Products : this.get('products').split(',')
+                }
+                
+                app.requester.recipe.create(recipeToCreate).then(function(data){
+                    app.notifier.success('Recipe added');
+                    app.main.navigate('views/single-recipe/single-recipe.html?id='+ data);
+                }, app.errorHandler)
             },
             addImage: function() {
                 var error = function () {

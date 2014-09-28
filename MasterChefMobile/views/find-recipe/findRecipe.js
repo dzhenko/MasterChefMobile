@@ -1,11 +1,11 @@
 var app = app || {};
-app.allRecipes = app.allRecipes || {};
+app.findRecipe = app.findRecipe || {};
 
 (function (app) {
     'use strict'
     var currentClickedId = 0;
     
-    app.allRecipes.init = function () {
+    app.findRecipe.init = function () {
         var dataSource = new kendo.data.DataSource({
             transport: {
                 read : function(options) {
@@ -18,12 +18,6 @@ app.allRecipes = app.allRecipes || {};
         
         var viewModel = kendo.observable({
             recipes: dataSource,
-            searchText: '',
-            onSearchClick: function() {
-                 console.log(this.get('searchText'));
-                 this.set('searchText','');
-                
-            },
             onLikeClick : function(e) {
                 app.requester.actions.like(e.button.context.dataset.id).then(function() {
                     e.button.context.innerText = e.button.context.innerText === "Like" ? "Unlike" : "Like";

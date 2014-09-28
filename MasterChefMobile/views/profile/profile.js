@@ -3,7 +3,20 @@ app.profile = app.profile || {};
 
 (function (app) {
     document.addEventListener("deviceready", function () {
-        startWatchingGeolocation();
+        var username = window.localStorage.getItem("username"); 
+        var viewModel = kendo.observable({
+             username: username,
+             logout : function() {
+                 app.auth.logout();
+                 app.notifier.success('Logout');
+                 app.main.navigate('views/login/login.html');
+             }
+         });
+
+        app.profile.model = viewModel;
+        kendo.bind($("#profile-username"), viewModel);
+        
+        //startWatchingGeolocation();
     
         function startWatchingGeolocation() {
             navigator.geolocation.watchPosition(geoWatchSuccess, geoWatchError, {
@@ -12,7 +25,7 @@ app.profile = app.profile || {};
                                                 });
         
             navigator.geolocation.getCurrentPosition(function(data) {
-                console.log(data)
+                //console.log(data)
             });
         }
 
@@ -37,18 +50,5 @@ app.profile = app.profile || {};
         var options = {
             frequency: 5000
         }; 
-    
-        var username = window.localStorage.getItem("username"); 
-        var viewModel = kendo.observable({
-             username: username,
-             logout : function() {
-                 app.auth.logout();
-                 app.notifier.success('Logout');
-                 app.main.navigate('views/login/login.html');
-             }
-         });
-
-        app.profile.model = viewModel;
-        kendo.bind($("#profile-username"), viewModel);
     });
 }(app));

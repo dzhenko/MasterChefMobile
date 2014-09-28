@@ -1,4 +1,20 @@
 <div data-role="view" data-layout="main-layout" data-title="Details"     
-    id="single-recipe-view" data-id="single-recipe-view" data-show="app.singleRecipe.init">
-    
+     id="single-recipe-view" data-show="app.singleRecipe.init" data-model="app.singleRecipe.model" data-id="single-recipe-view">
+    <div class="container" id="single-recipe" data-id="single-recipe">
+        <h2 data-bind="source: Name"></h2>
+        <img class="image" data-bind="attr: {src: Image}" />
+
+        <div>
+            <strong>Category: </strong><span data-bind="source: Category"></span>
+        </div>
+        <div>
+            <strong>Description: </strong><span data-bind="source: Description"></span>
+        </div>
+        <div>
+            <strong>Products: </strong><span data-bind="source: Products"></span>
+        </div>
+        <div>
+            <strong>Owner: </strong><span data-bind="source: Owner"></span>
+        </div>
+    </div>
 </div>

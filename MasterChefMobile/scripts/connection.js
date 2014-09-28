@@ -26,7 +26,7 @@ app.connectionApi = app.connectionApi || {};
                 var connectionType = navigator.connection.type;
                 
                 if (!connectionType || 
-                    [/*'unknown',*/ 'wifi', 'cell', 'none'].indexOf(connectionType.toLowerCase()) !== -1) {
+                    [/*'unknown', */'none', 'ethernet'].indexOf(connectionType.toLowerCase()) !== -1) {
                         return false;
                     }
                 

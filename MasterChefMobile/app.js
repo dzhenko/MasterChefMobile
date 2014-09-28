@@ -8,10 +8,6 @@ var app = app || {};
       // Cordova will wait 5 very long seconds to do it for you.
       navigator.splashscreen.hide();
         
-        //app default error handler
-        app.errorHandler = function(error) {
-            app.notifier.error(error);
-        }
         
       app.notifier = {
           success: function(message){
@@ -23,6 +19,11 @@ var app = app || {};
           error: function(message){
               toastr.error(message, 'Error', {timeOut: 2000});
           }
+      }
+        
+      //app default error handler
+      app.errorHandler = function(error) {
+          app.notifier.error(error);
       }
 
       app.main = new kendo.mobile.Application(document.body, {

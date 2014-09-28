@@ -20,8 +20,8 @@ app.ownRecipes = app.ownRecipes || {};
             onDeleteClick : function(e) {
                 app.requester.recipe.delete(e.button.context.dataset.id).then(function(data){
                     app.notifier.success('Deleted');
+                    $(e.target.context.parentNode.parentNode).fadeOut()
                     
-                    location.reload();
                 }, app.errorHandler);
             },
             onViewClick : function(e) {

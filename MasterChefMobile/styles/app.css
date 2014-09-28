@@ -1,51 +1,73 @@
-a {
-    text-decoration:none;
+a
+{
+    text-decoration: none;
 }
 
-#all-recipes-view .title {
+#all-recipes-view .title
+{
     font-style: italic;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-#all-recipes-view .image {
+#all-recipes-view .image
+{
     display: block;
     margin: auto;
     height: 280px;
     width: 280px;
 }
 
-#all-recipes-view .buttons {
+#all-recipes-view .buttons
+{
     margin: auto;
     width: 280px;
-    margin-bottom:3em;
+    margin-bottom: 3em;
     color: #FFF;
 }
 
-.categorySelect {
-    width:90% !important;
-    height:88% !important;
-    margin:auto;
-    padding:0;
+.categorySelect
+{
+    width: 90% !important;
+    height: 88% !important;
+    margin: auto;
+    padding: 0;
 }
-#create-recipe-view > div {
-    text-align:center;
+#create-recipe-view > div
+{
+    text-align: center;
 }
-.btn-success {
-    background-color:#5cb85c !important;
-    border-color:#4cae4c !important;
+.btn-success
+{
+    background-color: #5cb85c !important;
+    border-color: #4cae4c !important;
     color: White !important;
 }
 
-.btn-info {
-    background-color:#5bc0de !important;
+.btn-info
+{
+    background-color: #5bc0de !important;
     border-color: #46b8da !important;
     color: White !important;
 }
 
-.btn-primary {
-    background-color:#ad1d28 !important;
-    border-color:#ad1d28 !important;
-    color:#fff !important;
+.btn-primary
+{
+    background-color: #ad1d28 !important;
+    border-color: #ad1d28 !important;
+    color: #fff !important;
+}
+
+#location-viz
+{
+    width: 250px;
+    height: 250px;
+}
+
+div.map-container
+{
+    float: left;
+    text-align: center;
+    margin-top: 20px;
 }

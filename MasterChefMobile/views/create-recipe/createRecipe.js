@@ -63,6 +63,7 @@ app.createRecipe = app.createRecipe || {};
 
                  app.requester.recipe.create(recipeToCreate).then(function(data) {
                      app.notifier.success('Recipe added');
+                     navigator.notification.vibrate(1000);
                      app.main.navigate('views/single-recipe/single-recipe.html?id=' + data);
                  }, app.errorHandler);
              },

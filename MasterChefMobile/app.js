@@ -16,8 +16,9 @@ var app = app || {};
           warning : function(message) {
               toastr.warning(message, 'Warning', {timeOut: 2000});
           },
-          error: function(message){
-              toastr.error(message, 'Error', {timeOut: 2000});
+          error: function(message, timeout){
+              if (!timeout) { timeout = 2000; }
+              toastr.error(message, 'Error', { timeOut: timeout });
           }
       }
         

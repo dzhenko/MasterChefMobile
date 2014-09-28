@@ -3,7 +3,9 @@
     
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"></span>
+        <span class="input-group-btn" data>
+            <button class="btn btn-primary" data-bind="events: {click : onSearchTypeClick}">Name</button>
+        </span>
         <input type="text" class="form-control" data-bind="value:searchText">
         <span class="input-group-btn">
           <button class="btn btn-primary" data-bind="events: {click : onSearchClick}">Search</button>
@@ -11,12 +13,15 @@
       </div>
     </div>
     
-    <div data-role="listview"
+    <div id="all-recipes-list-div" data-id="all-recipes-list-div"
+        data-role="listview"
         data-bind="source : recipes"
         data-template="all-recipes-template"
         data-content-height="100%"
         data-enable-pager="false">
     </div>
+    
+    <div id="search-recipes-results" data-id="search-recipes-results"></div>
     
     <div data-role="modalview" id="modalview-comment" class="container">
         <div class="form-group col-md-12 col-xs-12 col-lg-12">

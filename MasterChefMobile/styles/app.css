@@ -23,6 +23,28 @@ a {
     color: #FFF;
 }
 
+
+#home-view .title {
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#home-view .image {
+    display: block;
+    margin: auto;
+    height: 280px;
+    width: 280px;
+}
+
+#home-view .buttons {
+    margin: auto;
+    width: 280px;
+    margin-bottom:3em;
+    color: #FFF;
+}
+
 #own-recipes-view .title {
     font-style: italic;
     text-align: center;

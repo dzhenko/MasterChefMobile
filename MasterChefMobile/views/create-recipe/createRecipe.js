@@ -28,28 +28,38 @@ app.createRecipe = app.createRecipe || {};
                  app.main.navigate('views/all-recipes/all-recipes.html');    
              },
              createRecipe: function() {
-                 // TODO
-                 //console.log(name);
-                 //console.log(description);
-                 //console.log(image);
-                 //console.log(products);
-                 //console.log(category);
-                 
                  var imageMagic = this.get('imageUrl'); /* magic with file upload or camera */
-                 console.log(imageMagic);
+                 
+                 var directions = this.get('directions');
+                 if (directions) {
+                    directions = this.get('directions').split('.');
+                 }
+                 
+                 var products = this.get('products');
+                 if (products) {
+                     products = this.get('products').split(',');
+                 }
+                 
                  var recipeToCreate = {
                      Name: this.get('name'),
                      Category : this.get('category'),
                      Description: this.get('description'),
                      Image: imageMagic,
-                     PreparationSteps : this.get('directions').split('.'),
-                     Products : this.get('products').split(','),
+                     PreparationSteps : directions,
+                     Products : products,
                      PreparationSteps: {
                          StepNumbers: 0,
                          Minutes: 0,
                          Text: ''
                      }
                  };
+                 
+                 if (!recipeToCreate.Name || !recipeToCreate.Category ||
+                     !recipeToCreate.Description || !recipeToCreate.Image ||
+                     !recipeToCreate.PreparationSteps || !recipeToCreate.Products) {
+                         app.notifier.warning('Some of the fields are left empty!');
+                         return;
+                     }
 
                  app.requester.recipe.create(recipeToCreate).then(function(data) {
                      app.notifier.success('Recipe added');
@@ -85,6 +95,7 @@ app.createRecipe = app.createRecipe || {};
                            }).then(function (picData) {
                                console.log(picData);
                                viewModel.imageUrl = picData.Result.Uri;
+                               app.notifier.success('Picture was uploaded successfully!');
                                console.log(viewModel.imageUrl); // TODO
                            })
                 }, function () {

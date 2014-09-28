@@ -23,6 +23,15 @@ a {
     color: #FFF;
 }
 
+.categorySelect {
+    width:90% !important;
+    height:88% !important;
+    margin:auto;
+    padding:0;
+}
+#create-recipe-view > div {
+    text-align:center;
+}
 .btn-success {
     background-color:#5cb85c !important;
     border-color:#4cae4c !important;

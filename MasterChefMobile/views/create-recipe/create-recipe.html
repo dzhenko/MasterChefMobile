@@ -1,5 +1,6 @@
-<div id="forms" data-role="view" data-title="Add recipe" data-layout="main-layout" data-model="app.addRecipe.model" data-init="initForm" data-use-native-scrolling="true">
-    <div class="col-md-10 col-xs-10 col-lg-10 col-md-offset-1 col-xs-offset-1 col-lg-offset-1 container">
+<div id="create-recipe-view" data-id="create-recipe-view" data-role="view" data-show="app.createRecipe.init"
+    data-title="Add recipe" data-layout="main-layout" data-init="initForm">
+    <div class="col-md-10 col-xs-10 col-lg-10 col-md-offset-1 col-xs-offset-1 col-lg-offset-1 container row">
         <div class="form-group">
             <label for="recipe-name" class="col-md-12 col-xs-12 col-lg-12 control-label">Name</label>
             <div class="col-md-12 col-xs-12 col-lg-12">
@@ -22,41 +23,39 @@
         </div>
 
         <div class="form-group">
-            <label for="recipe-image" class="col-md-12 col-xs-12 col-lg-12 control-label">Image</label>
+            <label for="recipe-image" class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
             <div class="col-md-12 col-xs-12 col-lg-12">
-                <button data-role="button" data-icon="camera" class="btn btn-success" data-align="right" data-bind="click: addImage">Take a picture</button>
+                <button data-role="button" data-icon="camera" class="btn btn-info col-md-12 col-xs-12 col-lg-12" data-align="right" data-bind="click: addImage">Take a picture</button>
             </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="recipe-image" class="col-md-12 col-xs-12 col-lg-12 control-label">Choose category</label>
+            <div class="col-md-12 col-xs-12 col-lg-12">
+                <input data-role="dropdownlist"
+                       data-auto-bind="true"
+                       data-value-primitive="true"
+                       data-text-field="Name"
+                       data-value-field="Name"
+                       data-bind="value: category,
+                                  source: allCategories"
+                       class="form-control categorySelect"
+                />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
+            <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
+            <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
+            <button data-bind="events: {click : cancel}" class="btn btn-primary col-md-10 col-xs-10 col-lg-10 col-md-offset-1 col-xs-offset-1 col-lg-offset-1">Cancel</button>
         </div>
 
         <div class="form-group">
-            <label for="dropdown" class="col-md-12 col-xs-12 col-lg-12 control-label">Category</label>
-            <div class="col-md-12 col-xs-12 col-lg-12">
-                <select id="dropdown" data-bind="value: category">
-                    <option value="Main Dish" selected="selected">Main Dish</option>
-                    <option value="Soup">Soup</option>
-                    <option value="Salad">Salad</option>
-                    <option value="Dessert">Dessert</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-md-12 col-xs-12 col-lg-12"></label>
-            <button data-bind="events: {click : createRecipe}" class="btn btn-primary col-md-10 col-xs-10 col-lg-10 col-md-offset-1 col-xs-offset-1 col-lg-offset-1">Save</button>
+            <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
+            <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
+            <label class="col-md-12 col-xs-12 col-lg-12 control-label"></label>
+            <button data-bind="events: {click : createRecipe}" class="btn btn-success col-md-10 col-xs-10 col-lg-10 col-md-offset-1 col-xs-offset-1 col-lg-offset-1">Save</button>
         </div>
     </div>
 </div>
-
-<script>
-    function initForm() {
-        var body = $(".km-pane");
-
-        if (kendo.ui.DropDownList) {
-            $("#dropdown").kendoDropDownList({
-                 // The options are needed only for the desktop demo, remove them for mobile.
-                 popup: { appendTo: body },
-                 animation: { open: { effects: body.hasClass("km-android") ? "fadeIn" : body.hasClass("km-ios") || body.hasClass("km-wp") ? "slideIn:up" : "slideIn:down" } }
-             });
-        }
-    }
-</script>

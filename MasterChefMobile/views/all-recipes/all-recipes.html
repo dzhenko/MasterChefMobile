@@ -26,8 +26,8 @@
         <div class="image" style="background-image: url(#: Image #); background-size:cover"></div>
     </div>
     <div class="btn-group btn-group-justified buttons">
-        <a data-role="button" id="likeButton" data-bind="events : {click : onLikeClick}" data-id="#:Id#" class="btn btn-info">#:LikedByUser===true ? 'Unlike' : 'Like'#</a>
-        <a href="views/single-recipe/single-recipe.html?id=#:Id#" class="btn btn-primary">View</a>
+        <a data-role="button" data-bind="events : {click : onLikeClick}" data-id="#:Id#" class="btn btn-info">#:LikedByUser===true ? 'Unlike' : 'Like'#</a>
+        <a data-role="button" data-bind="events : {click : onViewClick}" data-id="#:Id#" class="btn btn-primary">View</a>
         <a data-role="button" data-rel="modalview" href="\#modalview-comment" id="commentButton" data-bind="events : {click : onCommentClick}" data-id="#:Id#" class="btn btn-success">Comment</a>
     </div>
 </script>

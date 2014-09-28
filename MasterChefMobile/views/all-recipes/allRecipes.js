@@ -25,6 +25,9 @@ app.allRecipes = app.allRecipes || {};
             },
             onCommentClick : function(e) {
                 currentClickedId = e.button.context.dataset.id;
+            },
+            onViewClick : function(e) {
+                app.main.navigate('views/single-recipe/single-recipe.html?id='+ e.button.context.dataset.id);
             }
         });
         

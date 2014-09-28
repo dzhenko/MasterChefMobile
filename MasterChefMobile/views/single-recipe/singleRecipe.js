@@ -3,12 +3,14 @@ app.singleRecipe = app.singleRecipe || {};
 
 (function (app) {
     'use strict'
-
+    
     app.singleRecipe.init = function (e) {
-        var dataSource = new kendo.data.DataSource({
+        var recipeId = e.view.params.id;
+
+        app.singleRecipe.recipe = new kendo.data.DataSource({
             transport: {
                 read : function(options) {
-                    app.requester.recipe.byId().then(function(data){
+                    app.requester.recipe.byId(recipeId).then(function(data){
                         console.log(data);
                         options.success(data);
                     })
@@ -16,10 +18,8 @@ app.singleRecipe = app.singleRecipe || {};
             }
         });
         
-        alert(e.view.params.id);
-        
         var viewModel = kendo.observable({
-            recipe: dataSource
+            recipe: app.singleRecipe.recipe
         });
         
         kendo.bind($("#single-recipe-view"), viewModel);

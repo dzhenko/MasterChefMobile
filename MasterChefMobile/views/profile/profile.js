@@ -1,5 +1,4 @@
 var app = app || {};
-
 app.profile = app.profile || {};
 
 (function (app) {

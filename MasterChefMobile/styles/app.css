@@ -71,3 +71,73 @@ div.map-container
     text-align: center;
     margin-top: 20px;
 }
+
+
+#home-view .title {
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#home-view .image {
+    display: block;
+    margin: auto;
+    height: 280px;
+    width: 280px;
+}
+
+#home-view .buttons {
+    margin: auto;
+    width: 280px;
+    margin-bottom:3em;
+    color: #FFF;
+}
+
+#own-recipes-view .title {
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#own-recipes-view .image {
+    display: block;
+    margin: auto;
+    height: 280px;
+    width: 280px;
+}
+
+#own-recipes-view .buttons {
+    margin: auto;
+    width: 280px;
+    margin-bottom:3em;
+    color: #FFF;
+}
+
+.categorySelect {
+    width:90% !important;
+    height:88% !important;
+    margin:auto;
+    padding:0;
+}
+#create-recipe-view > div {
+    text-align:center;
+}
+.btn-success {
+    background-color:#5cb85c !important;
+    border-color:#4cae4c !important;
+    color: White !important;
+}
+
+.btn-info {
+    background-color:#5bc0de !important;
+    border-color: #46b8da !important;
+    color: White !important;
+}
+
+.btn-primary {
+    background-color:#ad1d28 !important;
+    border-color:#ad1d28 !important;
+    color:#fff !important;
+}

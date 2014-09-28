@@ -3,48 +3,36 @@ app.home = app.home || {};
 
 (function (app) {
     'use strict'
-
-    app.home.model = {
-        homeTitle: 'Recent events:',
-        events: [{
-            link: '',
-            message: 'ivan@abv.bg liked a recipe can you hear me guys'
-        },{
-            link: '',
-            message: 'hi guys'
-        },{
-            link: '',
-            message: 'hello guys'
-        },{
-            link: '',
-            message: 'hi guys'
-        },{
-            link: '',
-            message: 'waa guys'
-        },{
-            link: '',
-            message: 'ee guys'
-        },{
-            link: '',
-            message: 'waa guys'
-        },{
-            link: '',
-            message: 'ee guys'
-        }]
+    
+    app.home.init = function() {
+        app.requester.recipe.all().then(function(data){
+            var recipe = data[data.length - 1];
+            kendo.bind($('#newest-recipe'), kendo.observable({
+                recipe:recipe,
+                onViewClick: function() {
+                    app.main.navigate('views/single-recipe/single-recipe.html?id='+ recipe.Id);
+                }
+            }));
+            $('#recipe-image-holder').css('background-image','url(' + recipe.Image + ')');
+        }, app.errorHandler);
     }
     
+    app.home.onEventClick = function(e){
+        app.main.navigate('views/single-recipe/single-recipe.html?id='+ e.target.context.dataset.id);
+    }
     
+    function onRecieveMessage(message) {
+        var hrefLink = message.substr(0, 36);
+        var message = message.substr(39);
+        
+        $('#all-events-holder').prepend($('<li><a data-role="button" data-id="'+hrefLink+'">'+message+'</a></li>'));
+    }
     
-    //var pubnub = PUBNUB.init({
-    //    subscribe_key: 'sub-c-e6269c5c-3d90-11e4-87bf-02ee2ddab7fe'
-    //});
-    //pubnub.subscribe({
-    //    channel: 'MasterChef',
-    //    message: function(message) {
-    //        app.home.model.events.push({
-    //            link: message.substr(0, 36),
-    //            message: message.substr(39)
-    //        });
-    //    }
-    //});
+    var pubnub = PUBNUB.init({
+        subscribe_key: 'sub-c-e6269c5c-3d90-11e4-87bf-02ee2ddab7fe'
+    });
+    pubnub.subscribe({
+        channel: 'MasterChef',
+        message: onRecieveMessage
+    });
 }(app));

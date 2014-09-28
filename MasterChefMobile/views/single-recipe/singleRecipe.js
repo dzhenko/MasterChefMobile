@@ -6,7 +6,9 @@ app.singleRecipe = app.singleRecipe || {};
     
     app.singleRecipe.init = function (e) {
         var recipeId = e.view.params.id;
-
+        
+        console.log(recipeId);
+        // implement like home screen view
         app.singleRecipe.recipe = new kendo.data.DataSource({
             transport: {
                 read : function(options) {

@@ -68,7 +68,7 @@ app.createRecipe = app.createRecipe || {};
                      app.main.navigate('views/single-recipe/single-recipe.html?id=' + data);
                  }, app.errorHandler);
              },
-             addImage: function() {
+             takeImage: function() {
                  var error = function () {
                      navigator.notification.alert("Unfortunately we could not add the image");
                  };
@@ -84,6 +84,9 @@ app.createRecipe = app.createRecipe || {};
                  };
 
                  navigator.camera.getPicture(picSuccess, error, picConfig);
+             },
+             uploadImage: function() {
+                 //todo: pass binary data to onSuccessUpload
              }
          });
         
@@ -91,15 +94,15 @@ app.createRecipe = app.createRecipe || {};
             app.everlive.getImageData(data.result.Id)
                 .then(function (data) {
                     $.ajax({
-                               type: "GET",
-                               url: app.constants.everlivePictureStorageUri + data.result[0].Uri,
-                               contentType: "application/json",
-                           }).then(function (picData) {
-                               console.log(picData);
-                               viewModel.imageUrl = picData.Result.Uri;
-                               app.notifier.success('Picture was uploaded successfully!');
-                               console.log(viewModel.imageUrl); // TODO
-                           })
+                       type: "GET",
+                       url: app.constants.everlivePictureStorageUri + data.result[0].Uri,
+                       contentType: "application/json",
+                   }).then(function (picData) {
+                       console.log(picData);
+                       viewModel.imageUrl = picData.Result.Uri;
+                       app.notifier.success('Picture was uploaded successfully!');
+                       console.log(viewModel.imageUrl); // TODO
+                   })
                 }, function () {
                     console.log("Cannot get image data!");
                 });

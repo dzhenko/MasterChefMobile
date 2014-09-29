@@ -1,5 +1,4 @@
 var app = app || {};
-
 app.shakeNotifier = (function () {
     "use strict";
     
@@ -38,7 +37,7 @@ app.shakeNotifier = (function () {
             accelerationChange.y = Math.abs(previousAcceleration.y, acceleration.y);
             accelerationChange.z = Math.abs(previousAcceleration.z, acceleration.z);
         }
-        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > 15) {
+        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > 5) {
             // Shake detected
             if (typeof shakeCallBack === "function") {
                 shakeCallBack();

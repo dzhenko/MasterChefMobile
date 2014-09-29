@@ -10,6 +10,7 @@ app.home = app.home || {};
             kendo.bind($('#newest-recipe'), kendo.observable({
                 recipe:recipe,
                 onViewClick: function() {
+                    console.log(app.auth.isAuthenticated());
                     if (!app.auth.isAuthenticated()){
                         app.notifier.error('Login first!');
                         return;

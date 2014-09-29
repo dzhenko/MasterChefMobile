@@ -28,6 +28,8 @@ var app = app || {};
                 
                     $('#loggedInFooter').hide();
                     $('#loggedOutFooter').show().css('display', 'table');
+                    
+                    return data;
                 }, app.errorHandler);
         }
     

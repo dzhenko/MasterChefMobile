@@ -25,10 +25,8 @@ app.connectionApi = app.connectionApi || {};
             hasConnection: function() {
                 var connectionType = navigator.connection.type;
                 
-                app.notifier.error(connectionType);
-                
                 if (!connectionType || 
-                    [/*'unknown',*/ 'wifi', 'cell', 'none'].indexOf(connectionType.toLowerCase()) !== -1) {
+                    [/*'unknown',*/ 'cell', 'none'].indexOf(connectionType.toLowerCase()) !== -1) {
                     return false;
                 }
                 return true;

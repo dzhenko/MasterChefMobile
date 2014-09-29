@@ -13,9 +13,10 @@ app.profile = app.profile || {};
                  location: '',
                  connectionType: app.connectionApi.getConnectionDescription(),
                  logout : function() {
-                     app.auth.logout();
-                     app.notifier.success('Logout');
-                     app.main.navigate('views/login/login.html');
+                     app.auth.logout().then(function() {
+                         app.notifier.success('Logout');
+                         app.main.navigate('views/login/login.html');
+                     }, app.errorHandler);
                  }
              });
 

@@ -5,7 +5,7 @@
 
 **MasterChef** is a open-source MVVM hybrid mobile application built on Integrated Cloud Environment - **[Telerik Appbuilder Platform](http://www.telerik.com/appbuilder) (Icenium)**.
 
-RESTful mobile application powered by:
+**RESTful mobile application powered by:**
 - [Telerik Backend Services](http://www.telerik.com/backend-services)
 - [ASP.NET WebAPI](http://www.asp.net/web-api) - Repository Pattern + Unit of work + dependency resolver (Ninject)
 - [Microsoft SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server/)
@@ -13,7 +13,7 @@ RESTful mobile application powered by:
 - [Twitter Bootstrap](http://getbootstrap.com/)
 - [jQuery](http://jquery.com/)
 
-APIs:
+**APIs:**
 - [Google Maps API](https://developers.google.com/maps/?hl=en)
 - [Pubnub](http://www.pubnub.com/) - Simple and Real-time Communications API
 - [Everlive](https://www.everlive.com/) - Set of cloud-based backend services for building and managing mobile apps

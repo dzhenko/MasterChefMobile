@@ -37,7 +37,7 @@ app.shakeNotifier = (function () {
             accelerationChange.y = Math.abs(previousAcceleration.y, acceleration.y);
             accelerationChange.z = Math.abs(previousAcceleration.z, acceleration.z);
         }
-        if (accelerationChange.x  > 8) {
+        if (accelerationChange.x  > 12) {
             // Shake detected
             if (typeof shakeCallBack === "function") {
                 shakeCallBack();

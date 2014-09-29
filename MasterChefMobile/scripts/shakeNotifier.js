@@ -4,7 +4,7 @@ app.shakeNotifier = (function () {
     
     var shake = {},
         watchId = null,
-        options = { frequency: 150 },
+        options = { frequency: 250 },
         previousAcceleration = { x: null, y: null, z: null },
         shakeCallBack = null;
 

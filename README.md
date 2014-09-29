@@ -5,9 +5,9 @@
 
 **MasterChef** is a open-source MVVM hybrid mobile application built on Integrated Cloud Environment - [Telerik Appbuilder Platform](http://www.telerik.com/appbuilder) (Icenium).
 
-This simple mobile application provides functionality for the user to upload her/his favourites recipes and to share them with the other people around the world. All users have their own accounts with whome they can be in touch with all changes about their recipes. Also, users can share their opinion for other people's recipes as left a comment or like them. On the other side users receive an opinion about their uploads are notified for the changes.
+This simple mobile application provides functionality for the user to upload her/his favourites recipes and to share them with the other people around the world. All users have their own accounts with whom they can be in touch with all changes about their and other people recipes. Also, users can view other people recipes and can share their opinion as left a comment or like them. On the other side users received an opinion about their uploaded recipes are notified about the changes.
 
-MasterChef provides full CRUD operations - some of them: registration, login, creating / updating / deleting / comment / like / filtering / searching recipes.
+**MasterChef** provides full CRUD operations - some of them: registration, login, showing / creating / updating / deleting / commenting / liking / filtering / searching recipes.
 
 **RESTful mobile application powered by:**
 - [Telerik Backend Services](http://www.telerik.com/backend-services)

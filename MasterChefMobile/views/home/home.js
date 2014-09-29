@@ -29,6 +29,10 @@ app.home = app.home || {};
                     kendo.bind($('#newest-recipe'), kendo.observable({
                         recipe:recipe,
                         onViewClick: function() {
+                            if (!app.auth.isAuthenticated()){
+                                app.notifier.error('Login first!');
+                                return;
+                            }
                             app.main.navigate('views/single-recipe/single-recipe.html?id='+ recipe.Id);
                         }
                     }));

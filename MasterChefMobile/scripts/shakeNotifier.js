@@ -4,7 +4,7 @@ app.shakeNotifier = (function () {
     
     var shake = {},
         watchId = null,
-        options = { frequency: 100 },
+        options = { frequency: 250 },
         previousAcceleration = { x: null, y: null, z: null },
         shakeCallBack = null;
 
@@ -37,7 +37,7 @@ app.shakeNotifier = (function () {
             accelerationChange.y = Math.abs(previousAcceleration.y, acceleration.y);
             accelerationChange.z = Math.abs(previousAcceleration.z, acceleration.z);
         }
-        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > 5) {
+        if (accelerationChange.x + accelerationChange.y + accelerationChange.z > 20) {
             // Shake detected
             if (typeof shakeCallBack === "function") {
                 shakeCallBack();

@@ -43,7 +43,7 @@ app.shakeNotifier = (function () {
                 shakeCallBack();
             }
             shake.stopWatch();
-            setTimeout(shake.startWatch, 1000);
+            setTimeout(shake.startWatch, 200);
             previousAcceleration = {
                 x: null,
                 y: null,

@@ -3,8 +3,8 @@ app.login = app.login || {};
 
 (function (app) {
     app.login.model = kendo.observable({
-        username: '',
-        password: '',
+        username: 'test1@abv.bg',
+        password: '123123',
         loginClick : function() {          
             var email = this.get('username');
             var password = this.get('password');

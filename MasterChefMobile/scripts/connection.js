@@ -26,10 +26,9 @@ app.connectionApi = app.connectionApi || {};
                 var connectionType = navigator.connection.type;
                 
                 if (!connectionType || 
-                    [/*'unknown', */'none', 'ethernet'].indexOf(connectionType.toLowerCase()) !== -1) {
-                        return false;
-                    }
-                
+                    [/*'unknown',*/ 'cell', 'none'].indexOf(connectionType.toLowerCase()) !== -1) {
+                    return false;
+                }
                 return true;
             },
             getConnectionType: function() {

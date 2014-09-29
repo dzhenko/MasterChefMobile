@@ -1,9 +1,10 @@
 <div data-role="view" data-layout="main-layout" data-title="Details"     
      id="single-recipe-view" data-show="app.singleRecipe.init" data-model="app.singleRecipe.model" data-id="single-recipe-view">
     <div class="container" id="single-recipe" data-id="single-recipe">
-        <h2 data-bind="source: Name"></h2>
-        <img class="image" data-bind="attr: {src: Image}" />
-
+        <div>
+            <h2 class="title" data-bind="source: Name"></h2>
+            <div class="image" id="single-recipe-image-holder" data-id="single-recipe-image-holder" style="background-size:cover"></div>
+        </div>
         <div>
             <strong>Category: </strong><span data-bind="source: Category"></span>
         </div>
@@ -15,6 +16,20 @@
         </div>
         <div>
             <strong>Owner: </strong><span data-bind="source: Owner"></span>
+        </div>
+        <div class="btn-group btn-group-justified buttons">
+            <a data-role="button" data-bind="value: likeText, events : {click : onLikeClick}" class="btn btn-info"></a>
+        </div>
+        <div>
+            <h3>
+                Write a comment
+            </h3>
+            <textarea rows="3" id="commentText" data-id="commentText">
+                
+            </textarea>
+            <div class="btn-group btn-group-justified buttons">
+                <a data-role="button" data-bind="events : {click : onCommentClick}" class="btn btn-success">Comment</a>
+            </div>
         </div>
     </div>
 </div>

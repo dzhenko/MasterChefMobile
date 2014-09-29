@@ -27,6 +27,54 @@ a
     color: #FFF;
 }
 
+#single-recipe .title
+{
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#single-recipe .image
+{
+    display: block;
+    margin: auto;
+    height: 280px;
+    width: 280px;
+}
+
+#single-recipe .buttons
+{
+    margin: auto;
+    width: 280px;
+    margin-bottom: 3em;
+    color: #FFF;
+}
+
+#single-recipes-view .title
+{
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#single-recipes-view .image
+{
+    display: block;
+    margin: auto;
+    height: 280px;
+    width: 280px;
+}
+
+#single-recipes-view .buttons
+{
+    margin: auto;
+    width: 280px;
+    margin-bottom: 3em;
+    color: #FFF;
+}
+
 .categorySelect
 {
     width: 90% !important;

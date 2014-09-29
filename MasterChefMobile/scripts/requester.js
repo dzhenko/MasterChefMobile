@@ -97,22 +97,6 @@ var app = app || {};
 
             return deferred.promise();
         }
-        
-        function randomRecipe() {
-            var deferred = new $.Deferred();
-
-            $.ajax({
-                url:rootUrl + 'api/Recipes/?param=next&value=next',
-                type:"GET",
-                beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'bearer ' + app.auth.token())},
-                contentType:"application/x-www-form-urlencoded",
-                success: function(data){
-                    deferred.resolve(data);
-                }
-            });
-
-            return deferred.promise();
-        }
 
         function recipeById(id) {
             var deferred = new $.Deferred();
@@ -257,7 +241,6 @@ var app = app || {};
             recipe: {
                 create: createRecipe,
                 all: allRecipes,
-                random: randomRecipe,
                 byId: recipeById,
                 byName: recipeByName,
                 byCategory: recipeByCategory,

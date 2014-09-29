@@ -5,42 +5,16 @@ app.home = app.home || {};
     'use strict'
     
     app.home.init = function() {
-        app.requester.recipe.random().then(function(data){
-            var recipe = data;
+        app.requester.recipe.all().then(function(data){
+            var recipe = data[data.length - 1];
             kendo.bind($('#newest-recipe'), kendo.observable({
                 recipe:recipe,
                 onViewClick: function() {
-                    console.log(app.auth.isAuthenticated());
-                    if (!app.auth.isAuthenticated()){
-                        app.notifier.error('Login first!');
-                        return;
-                    }
                     app.main.navigate('views/single-recipe/single-recipe.html?id='+ recipe.Id);
                 }
             }));
             $('#recipe-image-holder').css('background-image','url(' + recipe.Image + ')');
         }, app.errorHandler);
-        
-        if (!app.home.shakeNotificationActivated) {
-            app.home.shakeNotificationActivated = true;
-            
-            app.shakeNotifier.startWatch(function() {
-                app.requester.recipe.random().then(function(data){
-                    var recipe = data;
-                    kendo.bind($('#newest-recipe'), kendo.observable({
-                        recipe:recipe,
-                        onViewClick: function() {
-                            if (!app.auth.isAuthenticated()){
-                                app.notifier.error('Login first!');
-                                return;
-                            }
-                            app.main.navigate('views/single-recipe/single-recipe.html?id='+ recipe.Id);
-                        }
-                    }));
-                    $('#recipe-image-holder').css('background-image','url(' + recipe.Image + ')');
-                }, app.errorHandler);
-            })
-        }
     }
     
     app.home.onEventClick = function(e){

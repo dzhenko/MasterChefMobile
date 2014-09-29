@@ -28,10 +28,6 @@ var app = app || {};
                 
                     $('#loggedInFooter').hide();
                     $('#loggedOutFooter').show().css('display', 'table');
-                    
-                    app.notifier.success('logged out debug');
-                    
-                    return data;
                 }, app.errorHandler);
         }
     

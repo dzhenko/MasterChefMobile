@@ -9,33 +9,20 @@ app.singleRecipe = app.singleRecipe || {};
             var recipeId = e.view.params.id;
             
             app.requester.recipe.byId(recipeId).then(function(data) {
+                console.log(data);
                 var vm = new kendo.observable({
-                Image: data.Image,
-                Name: data.Name,
-                Category: data.Category,
-                Description: data.Description,
-                Products: data.Products,
-                Owner: data.Owner
-            });
+                    Image: data.Image,
+                    Name: data.Name,
+                    Category: data.Category,
+                    Description: data.Description,
+                    PreparationSteps: data.PreparationSteps,
+                    Products: data.Products,
+                    Owner: data.Owner
+                });
                 
-            app.singleRecipe.model = vm;
-            kendo.bind($("#single-recipe-view"), vm);
+                app.singleRecipe.model = vm;
+                kendo.bind($("#single-recipe-view"), vm);
         })
-            
-        //// implement like home screen view
-        //app.singleRecipe.recipe = new kendo.data.DataSource({
-        //    transport: {
-        //        read : function(options) {
-        //            app.requester.recipe.byId(recipeId).then(function(data){
-        //                console.log(data);
-        //                options.success(data);
-        //            })
-        //        }
-        //    }
-        //});
-        //var viewModel = kendo.observable({
-        //    recipe: app.singleRecipe.recipe
-        //});
     };
 });
 }(app));

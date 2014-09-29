@@ -8,7 +8,6 @@ app.createRecipe = app.createRecipe || {};
            transport: {
                 read : function(options) {
                     app.requester.categories().then(function(data) {
-                        console.log(data);
                         options.success(data);
                     })
                 }
@@ -32,7 +31,13 @@ app.createRecipe = app.createRecipe || {};
                  
                  var directions = this.get('directions');
                  if (directions) {
-                    directions = this.get('directions').split('.');
+                    directions = this.get('directions').split('.').map(function(dir, index){
+                        return {
+                            Minutes:5 * (1 + index % 4),
+                            StepNumber: index + 1,
+                            Text: dir
+                        }
+                    });
                  }
                  
                  var products = this.get('products');
@@ -47,11 +52,7 @@ app.createRecipe = app.createRecipe || {};
                      Image: imageMagic,
                      PreparationSteps : directions,
                      Products : products,
-                     PreparationSteps: {
-                         StepNumbers: 0,
-                         Minutes: 0,
-                         Text: ''
-                     }
+                     PreparationSteps: directions
                  };
                  
                  if (!recipeToCreate.Name || !recipeToCreate.Category ||

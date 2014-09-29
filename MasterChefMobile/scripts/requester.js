@@ -4,7 +4,8 @@ var app = app || {};
     app.requester = (function () {
         'use strict';
 
-        var rootUrl = 'http://masterchef-1.apphb.com/';
+        //var rootUrl = 'http://masterchef-1.apphb.com/';
+        var rootUrl = 'http://localhost:21185/';
 
         function register(email, password, confirmPassword) {
             var deferred = new $.Deferred();

@@ -26,6 +26,7 @@ app.singleRecipe = app.singleRecipe || {};
                         });
                     },
                     onCommentClick : function() {
+                        console.log($('#commentText').val());
                         app.requester.actions.comment(data.Id, $('#commentText').val());
                         $('#commentText').val('');
                         location.reload();

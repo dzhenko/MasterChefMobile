@@ -10,32 +10,37 @@ app.singleRecipe = app.singleRecipe || {};
             
             app.requester.recipe.byId(recipeId).then(function(data) {
                 $('#single-recipe-image-holder').css('background-image','url(' + data.Image + ')');
+                
                 var vm = new kendo.observable({
                     Image: data.Image,
                     Name: data.Name,
                     Category: data.Category,
+                    ivan: 123,
                     Description: data.Description,
                     PreparationSteps: data.PreparationSteps,
                     Products: data.Products,
                     Owner: data.Owner,
                     likeText: 'Like',
+                    onCommentClick : function() {
+                        console.log('comented');
+                        app.requester.actions.comment(data.Id, $('#commentText').val()).then(function(){
+                            app.notifier.success('Commented!');
+                            $('#commentText').val('');
+                        }, app.errorHandler);
+                    },
                     onLikeClick : function() {
+                console.log(data);
+                console.log('!');
                         app.requester.actions.like(data.Id).then(function() {
                             console.log('liked');
-                            this.set('likeText', this.get('likeText') === "Like" ? "Unlike" : "Like");
+                            vm.set('likeText', vm.get('likeText') === "Like" ? "Unlike" : "Like");
                         });
-                    },
-                    onCommentClick : function() {
-                        console.log($('#commentText').val());
-                        app.requester.actions.comment(data.Id, $('#commentText').val());
-                        $('#commentText').val('');
-                        location.reload();
                     },
                 });
                 
                 app.singleRecipe.model = vm;
                 kendo.bind($("#single-recipe-view"), vm);
-        })
-    };
+            })
+        };
 });
 }(app));

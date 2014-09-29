@@ -29,7 +29,6 @@ app.connectionApi = app.connectionApi || {};
                     [/*'unknown',*/ 'wifi', 'cell', 'none'].indexOf(connectionType.toLowerCase()) !== -1) {
                     return false;
                 }
-                
                 return true;
             },
             getConnectionType: function() {

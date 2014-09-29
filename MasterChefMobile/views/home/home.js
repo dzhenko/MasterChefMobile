@@ -5,8 +5,8 @@ app.home = app.home || {};
     'use strict'
     
     app.home.init = function() {
-        app.requester.recipe.all().then(function(data){
-            var recipe = data[data.length - 1];
+        app.requester.recipe.random().then(function(data){
+            var recipe = data;
             kendo.bind($('#newest-recipe'), kendo.observable({
                 recipe:recipe,
                 onViewClick: function() {
@@ -15,6 +15,23 @@ app.home = app.home || {};
             }));
             $('#recipe-image-holder').css('background-image','url(' + recipe.Image + ')');
         }, app.errorHandler);
+        
+        if (!app.home.shakeNotificationActivated) {
+            app.home.shakeNotificationActivated = true;
+            
+            app.shakeNotifier.startWatch(function() {
+                app.requester.recipe.random().then(function(data){
+                    var recipe = data;
+                    kendo.bind($('#newest-recipe'), kendo.observable({
+                        recipe:recipe,
+                        onViewClick: function() {
+                            app.main.navigate('views/single-recipe/single-recipe.html?id='+ recipe.Id);
+                        }
+                    }));
+                    $('#recipe-image-holder').css('background-image','url(' + recipe.Image + ')');
+                }, app.errorHandler);
+            })
+        }
     }
     
     app.home.onEventClick = function(e){

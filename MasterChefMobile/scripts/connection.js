@@ -25,10 +25,10 @@ app.connectionApi = app.connectionApi || {};
             hasConnection: function() {
                 var connectionType = navigator.connection.type;
                 
-                if (!connectionType || 
-                    [/*'unknown',*/ 'wifi', 'cell', 'none'].indexOf(connectionType.toLowerCase()) !== -1) {
-                        return false;
-                    }
+                //if (!connectionType || 
+                    //[/*'unknown',*/ 'wifi', 'cell', 'none'].indexOf(connectionType.toLowerCase()) !== -1) {
+                    //    return false;
+                   // }
                 
                 return true;
             },

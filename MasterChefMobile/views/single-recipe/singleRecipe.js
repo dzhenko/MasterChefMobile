@@ -22,15 +22,12 @@ app.singleRecipe = app.singleRecipe || {};
                     Owner: data.Owner,
                     likeText: 'Like',
                     onCommentClick : function() {
-                        console.log('comented');
                         app.requester.actions.comment(data.Id, $('#commentText').val()).then(function(){
                             app.notifier.success('Commented!');
                             $('#commentText').val('');
                         }, app.errorHandler);
                     },
                     onLikeClick : function() {
-                console.log(data);
-                console.log('!');
                         app.requester.actions.like(data.Id).then(function() {
                             console.log('liked');
                             vm.set('likeText', vm.get('likeText') === "Like" ? "Unlike" : "Like");

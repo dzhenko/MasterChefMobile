@@ -39,7 +39,7 @@ var app = app || {};
                 return localStorage.getItem("recipesBearerToken");
             },
             isAuthenticated: function() {
-                return localStorage.getItem("recipesBearerToken") !== undefined;
+                return localStorage.getItem("recipesBearerToken") !== null;
             }
         }
     });

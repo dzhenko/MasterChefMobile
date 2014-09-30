@@ -24,6 +24,7 @@ app.home = app.home || {};
         
         if (!app.home.shakeNotificationActivated) {
             app.home.shakeNotificationActivated = true;
+            console.log('asd');
             
             app.shakeNotifier.startWatch(function() {
                 app.requester.recipe.random().then(function(data){

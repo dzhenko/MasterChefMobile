@@ -1,5 +1,4 @@
 var app = app || {};
-
 app.createRecipe = app.createRecipe || {};
 
 (function (app) {
@@ -91,9 +90,9 @@ app.createRecipe = app.createRecipe || {};
                  };
 
                  var picConfig = {
-                     destinationType: Camera.DestinationType.DATA_URL,
-                     targetHeight: 400,
-                     targetWidth: 400
+                     quality: 50,
+                     destinationType: phoneGapNavigator.camera.DestinationType.FILE_URI,
+                     sourceType: phoneGapNavigator.camera.PictureSourceType.SAVEDPHOTOALBUM
                  };
 
                  var picSuccess = function (data) {

@@ -53,14 +53,46 @@ app.home = app.home || {};
         app.main.navigate('views/single-recipe/single-recipe.html?id='+ e.target.context.dataset.id);
     }
     
-    function onRecieveMessage(message) {
-        var hrefLink = message.substr(0, 36);
-        var message = message.substr(39);
+    function successFindContacts(contacts, hrefLink, message) {
+        console.log(contacts);
         
         app.notificationsApi.beep(1);
         app.notificationsApi.vibrate([100,200,100,100]);
         
-        $('#all-events-holder').prepend($('<li><a data-role="button" data-id="'+hrefLink+'">'+message+'</a></li>'));
+        var user = message.substring(0, message.indexOf(' '));
+        message = message.substring(message.indexOf(' '));
+        
+        var found = false;
+        
+        for(var i = 0; i < contacts.length; i+=1){
+            for(var j = 0; j < contacts[i].emails.length; j+=1){
+                if (contacts[i].emails[j].value === user) {
+                    found = true;
+                    user = contacts[i].displayName;
+                    break;
+                }
+            }
+            
+            if (found) {
+                break;
+            }
+        }
+        
+        $('#all-events-holder').prepend($('<li><a data-role="button" data-id="'+hrefLink+'">'+user + ' ' + message+'</a></li>'));
+    }
+    
+    function onRecieveMessage(message) {
+        var hrefLink = message.substr(0, 36);
+        var message = message.substr(39);
+        
+        var options = new ContactFindOptions();
+        options.multiple=true;
+        var fields = ["name","displayName","emails"];
+        navigator.contacts.find(fields, function(results){
+            successFindContacts(results, hrefLink, message);
+        }, app.errorHandler, options);
+        
+        
     }
     
     var pubnub = PUBNUB.init({

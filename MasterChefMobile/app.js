@@ -8,10 +8,6 @@ var app = app || {};
       // Cordova will wait 5 very long seconds to do it for you.
       navigator.splashscreen.hide();
       
-         document.addEventListener("volumeupbutton", function() {
-            toastr.success('!!!');
-        }, false);
-        
       app.notifier = {
           success: function(message){
               toastr.success(message, 'Success', {timeOut: 2000});
@@ -24,6 +20,20 @@ var app = app || {};
               toastr.error(message, 'Error', { timeOut: timeout });
           }
       }
+      
+      
+        
+      document.addEventListener('offline', function () {
+          app.notificationsApi.beep(1);
+          app.notificationsApi.vibrate([100,200,100,100]);
+          app.notifier.success('Your internet is up and running again!');
+          
+          document.addEventListener('online', function () {
+              app.notificationsApi.beep(1);
+              app.notificationsApi.vibrate([100,200,100,100]);
+              app.notifier.error('Your internet is dead :(');
+          })
+      })
         
       //app default error handler
       app.errorHandler = function(error) {

@@ -84,19 +84,24 @@ app.createRecipe = app.createRecipe || {};
 
                  navigator.camera.getPicture(picSuccess, error, picConfig);
              },
-             uploadImage: function() {
+             uploadImageGallery: function() {
                  var error = function () {
                      navigator.notification.alert("Unfortunately we could not add the image");
                  };
 
-                 var picConfig = {
-                     quality: 50,
-                     destinationType: phoneGapNavigator.camera.DestinationType.FILE_URI,
-                     sourceType: phoneGapNavigator.camera.PictureSourceType.SAVEDPHOTOALBUM
+                 var picConfig = { 
+                    quality: 50, 
+                    destinationType: navigator.camera.DestinationType.FILE_URI,
+                    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
                  };
 
                  var picSuccess = function (data) {
-                     app.everlive.uploadImage(data, onSuccessUpload, onFailedUpload)
+                    var reader = new FileReader();
+                    reader.onloadend = function (evt) {
+                        var obj = evt.target.result; // this is your Base64 string
+                        app.everlive.uploadImage(obj, onSuccessUpload, onFailedUpload)
+                    };
+                    reader.readAsDataURL(data.getBlob());
                  };
 
                  navigator.camera.getPicture(picSuccess, error, picConfig);

@@ -7,7 +7,10 @@ var app = app || {};
       // hide the splash screen as soon as the app is ready. otherwise
       // Cordova will wait 5 very long seconds to do it for you.
       navigator.splashscreen.hide();
-        
+      
+         document.addEventListener("volumeupbutton", function() {
+            toastr.success('!!!');
+        }, false);
         
       app.notifier = {
           success: function(message){

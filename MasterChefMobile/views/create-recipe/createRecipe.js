@@ -86,7 +86,21 @@ app.createRecipe = app.createRecipe || {};
                  navigator.camera.getPicture(picSuccess, error, picConfig);
              },
              uploadImage: function() {
-                 //todo: pass binary data to onSuccessUpload
+                 var error = function () {
+                     navigator.notification.alert("Unfortunately we could not add the image");
+                 };
+
+                 var picConfig = {
+                     destinationType: Camera.DestinationType.DATA_URL,
+                     targetHeight: 400,
+                     targetWidth: 400
+                 };
+
+                 var picSuccess = function (data) {
+                     app.everlive.uploadImage(data, onSuccessUpload, onFailedUpload)
+                 };
+
+                 navigator.camera.getPicture(picSuccess, error, picConfig);
              }
          });
         
@@ -98,18 +112,16 @@ app.createRecipe = app.createRecipe || {};
                        url: app.constants.everlivePictureStorageUri + data.result[0].Uri,
                        contentType: "application/json",
                    }).then(function (picData) {
-                       console.log(picData);
                        viewModel.imageUrl = picData.Result.Uri;
                        app.notifier.success('Picture was uploaded successfully!');
-                       console.log(viewModel.imageUrl); // TODO
                    })
                 }, function () {
-                    console.log("Cannot get image data!");
+                    app.notifier.error("Cannot get image data!");
                 });
         }
         
         function onFailedUpload() {
-            console.log("Cannot upload an image!");
+            app.notifier.error("Cannot get image data!");
         }
         
         kendo.bind($("#create-recipe-view"), viewModel);

@@ -28,7 +28,7 @@ This simple mobile application provides functionality for the user to upload her
 * `Events` - when your internet connection is changed from/to online/offline
 * `Storage` - to keep user's session data
 * `Contacts` - when the user receives a notification and if he/she has the notifier's email in his/her contacts list - automatically the notifier's name is shown, if not - notifier's email is shown.
-* `Accelerometer` - in Home page, when you shake your devide - the picture in the center is automatically changed
+* `Accelerometer` - in Home page, when you shake your device - the picture in the center is automatically changed
 * `Compass` - real-time visualization with beautiful compass image of your state - position/location.
 * `Geolocation` - show your location on the map and tell you where you are (for example: near Sofia)
 

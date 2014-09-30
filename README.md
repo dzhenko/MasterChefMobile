@@ -22,6 +22,16 @@ This simple mobile application provides functionality for the user to upload her
 - [Pubnub](http://www.pubnub.com/) - Simple and Real-time Communications API
 - [Everlive](https://www.everlive.com/) - Set of cloud-based backend services for building and managing mobile apps
 
+**APIs usage:**
+* Camera - to capture & upload a new picture when creating recipe
+* File System - to select & upload a new picture when creating recipe
+* Events - when your internet connection is changed from/to online/offline
+* Storage - to keep user's session data
+* Contacts - when the user receives a notification and if he/she has the notifier's email in his/her contacts list - automatically the notifier's name is shown, if not - notifier's email is shown.
+* Accelerometer - in Home page, when you shake your devide - the picture in the center is automatically changed
+* Compass - real-time visualization with beautiful compass image of your state - position/location.
+* Geolocation - show your location on the map and tell you where you are (for example: near Sofia)
+
 ## Contributors:
 * Martin Nikolov ([@ flextry](https://github.com/flextry))
 * Dzhenko Penev ([@ fast4y](https://github.com/fast4y))

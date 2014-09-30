@@ -44,8 +44,9 @@ app.allRecipes = app.allRecipes || {};
                 e.currentTarget.innerText = searchTypes[searchTypeIndex].text;
             },
             onSearchClick: function() {
-                 if (this.get('searchText') === '') {
+                 if (this.get('searchText') === '' || this.get('searchText') === ' ') {
                      app.notifier.error('Search text is empty');
+                     return;
                  }
                 
                  searchTypes[searchTypeIndex].call(this.get('searchText')).then(function(foundData){

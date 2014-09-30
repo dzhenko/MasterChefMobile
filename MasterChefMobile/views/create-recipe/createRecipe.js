@@ -91,17 +91,12 @@ app.createRecipe = app.createRecipe || {};
 
                  var picConfig = { 
                     quality: 50, 
-                    destinationType: navigator.camera.DestinationType.FILE_URI,
+                    destinationType: navigator.camera.DestinationType.DATA_URL,
                     sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
                  };
 
                  var picSuccess = function (data) {
-                    var reader = new FileReader();
-                    reader.onloadend = function (evt) {
-                        var obj = evt.target.result; // this is your Base64 string
-                        app.everlive.uploadImage(obj, onSuccessUpload, onFailedUpload)
-                    };
-                    reader.readAsDataURL(data.getBlob());
+                     app.everlive.uploadImage(data, onSuccessUpload, onFailedUpload)
                  };
 
                  navigator.camera.getPicture(picSuccess, error, picConfig);

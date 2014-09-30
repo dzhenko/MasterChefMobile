@@ -46,6 +46,10 @@ app.home = app.home || {};
     }
     
     app.home.onEventClick = function(e){
+        if (!app.auth.isAuthenticated()) {
+            app.notifier.error('You must login or register!');
+            return;
+        }
         app.main.navigate('views/single-recipe/single-recipe.html?id='+ e.target.context.dataset.id);
     }
     

@@ -26,12 +26,12 @@ var app = app || {};
       document.addEventListener('offline', function () {
           app.notificationsApi.beep(1);
           app.notificationsApi.vibrate([100,200,100,100]);
-          app.notifier.success('Your internet is up and running again!');
+          app.notifier.error('Your internet is dead :(');
           
           document.addEventListener('online', function () {
               app.notificationsApi.beep(1);
               app.notificationsApi.vibrate([100,200,100,100]);
-              app.notifier.error('Your internet is dead :(');
+              app.notifier.success('You paid your internet - whee!');
           })
       })
         

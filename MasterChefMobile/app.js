@@ -20,8 +20,18 @@ var app = app || {};
               toastr.error(message, 'Error', { timeOut: timeout });
           }
       }
+        
+        document.addEventListener('batterycritical', function () {
+              app.notificationsApi.beep(1);
+              app.notificationsApi.vibrate([100,200,100,100]);
+              app.notifier.error('You battery is critical - you dont need food now - your phone needs some!');
+        })
       
-      
+        document.addEventListener('batterylow', function () {
+              app.notificationsApi.beep(1);
+              app.notificationsApi.vibrate([100,200,100,100]);
+              app.notifier.error('You battery is low - cook fast !');
+        })
         
       document.addEventListener('offline', function () {
           app.notificationsApi.beep(1);

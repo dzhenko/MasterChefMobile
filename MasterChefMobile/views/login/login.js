@@ -3,8 +3,8 @@ app.login = app.login || {};
 
 (function (app) {
     app.login.model = kendo.observable({
-        username: 'test1@abv.bg',
-        password: '123123',
+        username: '',
+        password: '',
         loginClick : function() {          
             var email = this.get('username');
             var password = this.get('password');
@@ -23,7 +23,7 @@ app.login = app.login || {};
                 return;
             }
             
-            app.auth.login(email, password).then(function(data){
+            app.auth.login(email, password).then(function(data) {
                 app.notifier.success('Logged in');
                 app.main.navigate('views/home/home.html');
             }, app.errorHandler);
